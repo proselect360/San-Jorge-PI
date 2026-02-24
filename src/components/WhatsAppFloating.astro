@@ -1,0 +1,141 @@
+---
+interface Props {
+    whatsappNumber?: string;
+    message?: string;
+}
+
+const {
+    whatsappNumber = "573102143000",
+    message = "Hola, estoy interesado en recibir información sobre Parque Industrial San Jorge.",
+} = Astro.props;
+
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+---
+
+<div
+    id="whatsapp-container"
+    class="fixed bottom-10 right-10 z-999999 pointer-events-none"
+    style="display: flex !important;"
+>
+    <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        id="whatsapp-button"
+        class="pointer-events-auto group relative flex items-center gap-6 no-underline transition-transform duration-300 ease-out"
+        aria-label="Hablar con un Experto por WhatsApp"
+    >
+        {/* Label Nivel Dios: Hyper-Glassmorphism */}
+        <div
+            class="hidden md:flex items-center relative overflow-hidden rounded-2xl border border-white/30 bg-white/5 px-6 py-3 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.4)] opacity-0 -translate-x-8 transition-all duration-700 ease-expo group-hover:opacity-100 group-hover:translate-x-0"
+        >
+            {/* Luz Perimetral del Label */}
+            <div
+                class="absolute inset-0 bg-linear-to-r from-white/10 via-transparent to-transparent"
+            >
+            </div>
+
+            {/* Brillo de barrido dinámico */}
+            <div
+                class="absolute inset-0 w-1/4 -skew-x-45 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-[-300%] group-hover:animate-[shimmer_3s_infinite_ease-in-out]"
+            >
+            </div>
+
+            <div class="relative flex flex-col items-start leading-none">
+                <span
+                    class="text-[9px] font-black uppercase tracking-[0.4em] text-(--sjp-primary) mb-1.5 drop-shadow-sm"
+                    >Conexión Inmediata</span
+                >
+                <span
+                    class="text-[13px] font-black uppercase tracking-widest text-white drop-shadow-md"
+                    >Hablar con un Experto</span
+                >
+            </div>
+        </div>
+
+        {/* El Orbe Maestro: Ingeniería Visual Extrema */}
+        <div class="relative flex h-20 w-20 items-center justify-center">
+            {/* Aura de Poder (Glow dinámico) */}
+            <div
+                class="absolute inset-[-10px] rounded-full bg-(--sjp-primary)/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"
+            >
+            </div>
+
+            {/* Anillos de energía sincronizados */}
+            <div
+                class="absolute inset-0 rounded-full border-2 border-(--sjp-primary)/40 scale-100 group-hover:scale-150 group-hover:opacity-0 transition-all duration-1000"
+            >
+            </div>
+            <div
+                class="absolute inset-0 rounded-full border border-white/20 animate-[spin_12s_linear_infinite]"
+            >
+            </div>
+
+            {/* Cuerpo del Orbe: Multi-Layer Glass & Light */}
+            <div
+                class="relative flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-[#f27405] via-[#ff8c2b] to-[#c75a00] text-white shadow-[0_20px_60px_rgba(242,116,5,0.7),inset_0_-4px_12px_rgba(0,0,0,0.3),inset_0_4px_12px_rgba(255,255,255,0.5)] transition-all duration-500 group-hover:scale-115 group-active:scale-95"
+            >
+                {/* Efecto de Cristal Realista (Reflejos) */}
+                <div
+                    class="absolute top-1.5 left-3.5 right-3.5 h-5 rounded-full bg-linear-to-b from-white/50 to-transparent opacity-90 blur-[1px]"
+                >
+                </div>
+                <div
+                    class="absolute bottom-2 left-4 right-4 h-1.5 rounded-full bg-white/20 blur-[2px]"
+                >
+                </div>
+
+                {/* Icono de Alta Fidelidad */}
+                <svg
+                    class="h-9 w-9 drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] transition-transform duration-500 group-hover:rotate-[15deg] group-hover:scale-110"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.258-.041.404.314.159.386.541 1.32.588 1.416.046.096.077.208.014.332-.063.125-.094.203-.187.311-.093.108-.198.242-.283.325-.094.093-.193.195-.083.384.108.188.479.792 1.026 1.28.705.629 1.3.825 1.487.912.187.087.297.072.407-.053.111-.125.474-.551.6-.738.125-.188.252-.158.423-.095.172.063 1.085.512 1.273.606.188.094.312.14.358.219.046.079.046.456-.098.861zM12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m.017 19.349c-1.262 0-2.433-.339-3.456-.932l-3.859 1.012 1.033-3.766c-.655-1.02-1.041-2.226-1.041-3.524 0-3.663 2.98-6.643 6.643-6.643s6.643 2.98 6.643 6.643-2.98 6.643-6.643 6.643z"
+                    ></path>
+                </svg>
+            </div>
+        </div>
+    </a>
+</div>
+
+<style>
+    @keyframes shimmer {
+        0% {
+            transform: translateX(-300%) skewX(-45deg);
+        }
+        100% {
+            transform: translateX(300%) skewX(-45deg);
+        }
+    }
+
+    .ease-expo {
+        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+</style>
+
+<script>
+    // Efecto Magnético "Nivel Dios"
+    const button = document.getElementById("whatsapp-button");
+    const container = document.getElementById("whatsapp-container");
+
+    if (button && container) {
+        const strength = 25; // Fuerza de atracción
+
+        document.addEventListener("mousemove", (e) => {
+            const rect = button.getBoundingClientRect();
+            const x = e.clientX - (rect.left + rect.width / 2);
+            const y = e.clientY - (rect.top + rect.height / 2);
+            const distance = Math.sqrt(x * x + y * y);
+
+            if (distance < 150) {
+                const moveX = (x / 150) * strength;
+                const moveY = (y / 150) * strength;
+                button.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            } else {
+                button.style.transform = `translate(0px, 0px)`;
+            }
+        });
+    }
+</script>

@@ -1,0 +1,230 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import InfrastructureOverview from "../components/InfrastructureOverview.astro";
+import Features from "../components/Features.astro";
+import PropertyTabs from "../components/PropertyTabs";
+import BrandLogos from "../components/BrandLogos.astro";
+import VideoSection from "../components/VideoSection.astro";
+---
+
+<MainLayout
+  title="Parque Industrial San Jorge | Terminal Metropolitano de Carga"
+>
+  <Hero />
+  <VideoSection />
+
+  <div class="reveal-on-scroll">
+    <InfrastructureOverview />
+  </div>
+
+  <div class="reveal-on-scroll">
+    <BrandLogos />
+  </div>
+
+  <section
+    id="inmuebles"
+    class="relative z-10 mx-auto max-w-7xl px-4 py-24 md:px-6 bg-white transition-colors duration-500"
+  >
+    <div class="mb-16 text-center animate-fade-in-up">
+      <div
+        class="inline-flex items-center gap-2 mb-6 rounded-full bg-slate-50 px-5 py-2 border border-slate-200"
+      >
+        <span
+          class="text-[11px] font-black tracking-[0.3em] uppercase text-slate-600"
+          >Catálogo de Espacios</span
+        >
+      </div>
+      <h2
+        class="text-4xl font-black tracking-tighter text-slate-900 md:text-6xl leading-tight mb-4 uppercase"
+      >
+        Oferta Inmobiliaria
+      </h2>
+      <div class="h-1 w-20 bg-(--sjp-primary) mx-auto"></div>
+      <p class="mt-8 mx-auto max-w-2xl text-xl font-bold text-slate-600">
+        Desde 2009 ofrecemos infraestructura moderna con soluciones adaptadas a
+        industrias, comercios y servicios
+      </p>
+    </div>
+    <PropertyTabs client:load />
+  </section>
+
+  <section
+    id="directorio"
+    class="relative z-10 mx-auto grid max-w-7xl gap-8 px-4 py-24 md:px-6 md:grid-cols-3"
+  >
+    {
+      [
+        {
+          href: "/directorio-empresarial",
+          title: "Directorio de Empresas",
+          desc: "Red de 150+ empresas, acceso a proveedores, clientes y oportunidades de negocios.",
+          icon: (
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+            />
+          ),
+        },
+        {
+          href: "#eventos",
+          title: "Eventos & Logística",
+          desc: "Convenciones, seminarios y eventos con 2 centros de convenciones equipados.",
+          icon: (
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          ),
+        },
+        {
+          href: "/bolsa-de-empleo",
+          title: "Bolsa de Empleo",
+          desc: "Oportunidades laborales en el parque y sector industrial de la región.",
+          icon: (
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7"
+            />
+          ),
+        },
+      ].map((item, idx) => (
+        <article
+          class="group relative flex flex-col items-center text-center rounded-3xl border border-slate-100 bg-white p-12 shadow-[0_20px_50px_rgba(0,0,0,0.03)] transition-all hover:-translate-y-2 hover:shadow-[0_40px_80px_rgba(0,0,0,0.06)]"
+          style={`animation-delay: ${idx * 0.15}s`}
+        >
+          <div class="h-20 w-20 rounded-2xl bg-slate-50 flex items-center justify-center mb-8 text-black group-hover:bg-black group-hover:text-white transition-all transform group-hover:rotate-12 group-hover:scale-110">
+            <svg
+              class="h-10 w-10"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {item.icon}
+            </svg>
+          </div>
+          <h3 class="text-2xl font-black tracking-tight text-black transition-colors">
+            {item.title}
+          </h3>
+          <p class="mt-4 text-sm font-bold leading-relaxed text-slate-500">
+            {item.desc}
+          </p>
+          <a
+            href={item.href}
+            class="mt-10 inline-flex items-center gap-3 text-xs font-black uppercase tracking-widest text-black no-underline group/link"
+          >
+            Explorar Directorio
+            <svg
+              class="h-4 w-4 transition-transform group-hover/link:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </article>
+      ))
+    }
+  </section>
+
+  <div id="servicios" class="reveal-on-scroll">
+    <Features />
+  </div>
+
+  <section
+    id="eventos"
+    class="relative z-10 mx-auto max-w-7xl px-4 py-24 md:px-6"
+  >
+    <div
+      class="group relative overflow-hidden rounded-[3rem] border border-slate-100 bg-white p-10 md:p-20 shadow-[0_32px_64px_rgba(0,0,0,0.04)]"
+    >
+      <div
+        class="relative z-10 flex flex-col lg:flex-row lg:items-center gap-12"
+      >
+        <div class="lg:flex-1">
+          <div
+            class="inline-flex items-center gap-2 mb-6 rounded-full bg-slate-50 px-4 py-1.5 border border-slate-100"
+          >
+            <span
+              class="text-[10px] font-black tracking-[0.3em] uppercase text-slate-500"
+              >Infraestructura Integrada</span
+            >
+          </div>
+          <h2
+            class="text-3xl font-black tracking-tight text-slate-900 uppercase"
+          >
+            Servicios <span class="text-(--sjp-primary)">Exclusivos</span>
+          </h2>
+          <div class="h-1 w-12 bg-(--sjp-primary) mt-4"></div>
+          <p class="mt-6 text-lg font-bold leading-relaxed text-slate-500">
+            Desde nuestra fundación en 2009, hemos integrado servicios
+            adicionales para apoyar el crecimiento empresarial. Acceso a <strong
+              class="text-black"
+              >plazoleta de comidas, 2 centros de convenciones, hotel
+              empresarial, estación de servicio y báscula camionera</strong
+            >.
+          </p>
+          <div class="mt-10 grid grid-cols-2 gap-4">
+            {
+              [
+                {
+                  label: "Hotel & Hospedaje",
+                  color: "bg-slate-900",
+                },
+                {
+                  label: "Comidas & Restauración",
+                  color: "bg-slate-400",
+                },
+                {
+                  label: "Logística & Transporte",
+                  color: "bg-slate-200",
+                },
+                {
+                  label: "Convenciones & Eventos",
+                  color: "bg-black",
+                },
+              ].map((item) => (
+                <div class="flex items-center gap-3 group/item">
+                  <div
+                    class={`h-3 w-3 rounded-full ${item.color} shadow-lg transition-transform group-hover/item:scale-150`}
+                  />
+                  <span class="text-sm font-black text-slate-600 uppercase tracking-wider">
+                    {item.label}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="lg:w-1/3">
+          <div
+            class="relative aspect-square rounded-3xl overflow-hidden border border-slate-100 shadow-2xl transition-transform duration-700"
+          >
+            <div
+              class="absolute inset-0 bg-slate-50 backdrop-blur-sm flex items-center justify-center p-8 text-center"
+            >
+              <p
+                class="text-sm font-black text-slate-400 uppercase tracking-[0.2em]"
+              >
+                Visualización de Servicios Próximamente
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>

@@ -1,0 +1,124 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+}
+
+const {
+  title = "Directorio de Empresas",
+  subtitle = "Red de Negocios",
+  description = "Conecta con más de 150+ empresas del parque industrial. Encuentra socios estratégicos, proveedores y colaboradores en nuestra comunidad empresarial."
+} = Astro.props;
+---
+
+{/* HERO SECTION - NIVEL 100 */}
+<section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-black pt-24 pb-32">
+  {/* Animated Grid Background */}
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.05)_25%,rgba(255,255,255,.05)_50%,transparent_50%,transparent_75%,rgba(255,255,255,.05)_75%,rgba(255,255,255,.05))] bg-[length:40px_40px] animate-pulse" />
+  </div>
+
+  {/* Gradient Orbs - Animated */}
+  <div class="absolute top-10 left-1/4 w-96 h-96 bg-[var(--sjp-primary)]/20 rounded-full blur-3xl opacity-20 animate-blur" />
+  <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl opacity-20 animate-blur" style="animation-delay: 2s" />
+  <div class="absolute top-1/2 left-1/2 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl opacity-15 animate-blur" style="animation-delay: 4s" />
+
+  <div class="relative mx-auto max-w-7xl px-4 md:px-6">
+    {/* Breadcrumb Badge */}
+    <div class="mb-12 flex items-center gap-2">
+      <span class="inline-flex items-center px-4 py-2 rounded-full bg-[var(--sjp-primary)]/10 border border-[var(--sjp-primary)]/30 text-xs font-black uppercase tracking-widest text-[var(--sjp-primary)]">
+        <span class="h-2 w-2 rounded-full bg-[var(--sjp-primary)] mr-2 animate-pulse" />
+        Directorio Empresarial Oficial
+      </span>
+    </div>
+
+    <div class="max-w-4xl mb-16">
+      {/* Main Headline */}
+      <h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter leading-[1.1]">
+        <span class="block">Red de<br/></span>
+        <span class="block bg-gradient-to-r from-[var(--sjp-primary)] via-orange-500 to-[var(--sjp-primary)] bg-clip-text text-transparent animate-pulse">
+          Negocios Estratégica
+        </span>
+      </h1>
+
+      <p class="text-xl md:text-2xl text-slate-300 font-bold leading-relaxed max-w-2xl mb-8">
+        {description}
+      </p>
+
+      {/* Advanced Stats Grid */}
+      <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mb-12">
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-[var(--sjp-primary)]/50">
+          <span class="block text-3xl md:text-4xl font-black text-[var(--sjp-primary)] mb-1">150+</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">Empresas</span>
+        </div>
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-orange-500/50">
+          <span class="block text-3xl md:text-4xl font-black text-orange-500 mb-1">5K+</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">Empleados</span>
+        </div>
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-blue-500/50">
+          <span class="block text-3xl md:text-4xl font-black text-blue-500 mb-1">25+</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">Sectores</span>
+        </div>
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-[var(--sjp-primary)]/50">
+          <span class="block text-3xl md:text-4xl font-black text-[var(--sjp-primary)] mb-1">45K+</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">M² Ocupados</span>
+        </div>
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-emerald-500/50">
+          <span class="block text-3xl md:text-4xl font-black text-emerald-500 mb-1">24/7</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">Operando</span>
+        </div>
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-rose-500/50">
+          <span class="block text-3xl md:text-4xl font-black text-rose-500 mb-1">ISO</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">Certificados</span>
+        </div>
+      </div>
+
+      {/* CTA Buttons */}
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href="#directorio"
+          class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-[var(--sjp-primary)] to-orange-600 text-white font-black uppercase tracking-widest text-sm hover:shadow-2xl hover:shadow-[var(--sjp-primary)]/40 transition-all duration-300 active:scale-95"
+        >
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Explorar Directorio
+          <div class="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity blur" />
+        </a>
+
+        <a
+          href="#empresas"
+          class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl border-2 border-[var(--sjp-primary)] bg-black/50 text-white font-black uppercase tracking-widest text-sm hover:bg-[var(--sjp-primary)]/10 transition-all duration-300"
+        >
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10.5 1.5H9.5A1.5 1.5 0 008 3v1H4.5A1.5 1.5 0 003 5.5V18a1.5 1.5 0 001.5 1.5h10A1.5 1.5 0 0016 18.5V5.5A1.5 1.5 0 0014.5 4H10.5V3a1.5 1.5 0 00-1.5-1.5zm0 2v1h-1V3.5h1zM4 7h12v11H4V7zm2 2v2h2V9H6zm0 3v2h2v-2H6zm3-3v2h2V9h-2zm0 3v2h2v-2h-2zm3-3v2h2V9h-2zm0 3v2h2v-2h-2z" />
+          </svg>
+          Ver Empresas
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {/* Wave Divider */}
+  <svg class="absolute bottom-0 w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.87,168.19-17.8,250.6-.3C823.78,31,906.4,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="white" />
+  </svg>
+</section>
+
+<style>
+  @keyframes blur-animation {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translate(30px, -30px) scale(1.1);
+      opacity: 0.35;
+    }
+  }
+
+  .animate-blur {
+    animation: blur-animation 8s ease-in-out infinite;
+  }
+</style>

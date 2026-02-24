@@ -1,0 +1,473 @@
+---
+export interface Company {
+  id: string;
+  name: string;
+  category: string;
+  categoryLabel: string;
+  description: string;
+  employees: string;
+  phone: string;
+  email: string;
+  website?: string;
+  sector: string;
+  since: string;
+  badge?: string;
+  logo?: string;
+  whatsapp?: string;
+  services?: string[];
+  certifications?: string[];
+  location?: string;
+  social?: {
+    instagram?: string;
+    linkedin?: string;
+    facebook?: string;
+  };
+}
+
+export interface Props {
+  companies?: Company[];
+}
+
+const {
+  companies = [
+    {
+      id: "1",
+      name: "Cargill",
+      category: "logistica",
+      categoryLabel: "Logística",
+      description:
+        "Soluciones logísticas integrales y distribución de productos agrícolas a nivel nacional.",
+      employees: "85",
+      phone: "+57 1 893-3208",
+      email: "contacto@cargill.co",
+      website: "cargill.com",
+      sector: "Agricultura y Logística",
+      since: "14",
+      badge: "Premium",
+      whatsapp: "573187166899",
+      location: "Lote 45, Manzana A",
+      services: ["Distribución nacional", "Almacenamiento", "Logística inversa", "Trazabilidad"],
+      certifications: ["ISO 9001", "IFS", "HACCP"],
+      social: {
+        linkedin: "cargill",
+        facebook: "cargill",
+      },
+      logo: "https://api.dicebear.com/7.x/initials/svg?seed=CA&backgroundColor=003580&textColor=ffffff&fontSize=40&bold=true",
+    },
+    {
+      id: "2",
+      name: "Jungheinrich",
+      category: "manufactura",
+      categoryLabel: "Manufactura",
+      description:
+        "Fabricación y distribución de equipos de manutención, carretillas elevadoras y sistemas logísticos.",
+      employees: "42",
+      phone: "+57 317-3717052",
+      email: "info@jungheinrich.co",
+      website: "jungheinrich.co",
+      sector: "Equipos Industriales",
+      since: "10",
+      whatsapp: "573173717052",
+      location: "Bodega 12, Manzana C",
+      services: ["Carretillas elevadoras", "Equipos de manutención", "Renting", "Mantenimiento"],
+      certifications: ["ISO 14001", "Certificación CE"],
+      social: {
+        linkedin: "jungheinrichcolombia",
+        instagram: "jungheinrich_col",
+      },
+      logo: "https://api.dicebear.com/7.x/initials/svg?seed=JH&backgroundColor=374151&textColor=ffffff&fontSize=40&bold=true",
+    },
+    {
+      id: "3",
+      name: "Vitelsa",
+      category: "manufactura",
+      categoryLabel: "Manufactura",
+      description:
+        "Transformación especializada de vidrio para arquitectura, construcción y proyectos comerciales.",
+      employees: "58",
+      phone: "+57 1 4240101",
+      email: "contacto@vitelsa.co",
+      website: "vitelsa.com.co",
+      sector: "Vidrio Arquitectónico",
+      since: "12",
+      badge: "Destacado",
+      whatsapp: "573175238901",
+      location: "Bodega 1, Manzana C4",
+      services: ["Vidrio templado", "Vidrio laminado", "Insulado", "Personalización"],
+      certifications: ["ISO 9001", "Marcado CE"],
+      social: {
+        linkedin: "vitelsa-vidrios-de-seguridad",
+        instagram: "vitelsa_col",
+        facebook: "vitelsa.sa",
+      },
+      logo: "https://api.dicebear.com/7.x/initials/svg?seed=VI&backgroundColor=1e293b&textColor=ffffff&fontSize=40&bold=true",
+    },
+    {
+      id: "4",
+      name: "Pepsico",
+      category: "comercio",
+      categoryLabel: "Comercio",
+      description:
+        "Distribuidora de bebidas y alimentos de marca global con alcance nacional y logística especializada.",
+      employees: "124",
+      phone: "+57 1 305-3200",
+      email: "ventas@pepsico.co",
+      website: "pepsico.com.co",
+      sector: "Alimentos y Bebidas",
+      since: "9",
+      badge: "Premium",
+      whatsapp: "573005432100",
+      location: "Bodegas 15-16, Manzana B",
+      services: ["Distribución mayorista", "Cold storage", "Logística refrigerada", "Entregas rápidas"],
+      certifications: ["FSSC 22000", "ISO 45001"],
+      social: {
+        linkedin: "pepsico",
+        facebook: "pepsico",
+        instagram: "pepsico",
+      },
+      logo: "https://api.dicebear.com/7.x/initials/svg?seed=PE&backgroundColor=ea580c&textColor=ffffff&fontSize=40&bold=true",
+    },
+    {
+      id: "5",
+      name: "Tracolsas",
+      category: "servicios",
+      categoryLabel: "Servicios",
+      description:
+        "Gestión integral de residuos peligrosos industriales con estándares ambientales certificados.",
+      employees: "32",
+      phone: "+57 1 892-8035",
+      email: "info2@tracolsas.com",
+      website: "tracolsas.com",
+      sector: "Gestión Ambiental",
+      since: "8",
+      whatsapp: "573045935404",
+      location: "Lote 187, Sector Los Puentes",
+      services: ["Recolección RESPEL", "Incineración", "Disposición final", "Asesoría ambiental"],
+      certifications: ["ISO 14001", "Licencia CAR", "RESPEL Certificado"],
+      social: {
+        linkedin: "tracol-s-a-s-esp",
+        instagram: "tracolsas",
+        facebook: "tracol.esp",
+      },
+      logo: "https://api.dicebear.com/7.x/initials/svg?seed=TR&backgroundColor=0066cc&textColor=ffffff&fontSize=40&bold=true",
+    },
+    {
+      id: "6",
+      name: "Solindtec",
+      category: "tecnologia",
+      categoryLabel: "Tecnología",
+      description:
+        "Soluciones tecnológicas en automatización industrial, control de procesos y sistemas integrados.",
+      employees: "28",
+      phone: "+57 318-7166899",
+      email: "ventas@solindtec.com",
+      website: "solindtec.com",
+      sector: "Automatización y Tecnología",
+      since: "5",
+      badge: "Innovador",
+      whatsapp: "573187166899",
+      location: "Bodega 8, Manzana D",
+      services: ["Automatización industrial", "PLC/SCADA", "Consultoría técnica", "Capacitación"],
+      certifications: ["ISO 9001", "Partner Siemens"],
+      social: {
+        linkedin: "solindtec",
+        facebook: "solindtec",
+      },
+      logo: "https://api.dicebear.com/7.x/initials/svg?seed=SO&backgroundColor=475569&textColor=ffffff&fontSize=40&bold=true",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="relative py-20 bg-slate-50/50">
+  <div class="mx-auto max-w-7xl px-4 md:px-6">
+    {/* Grid de empresas */}
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        companies.map((company) => (
+          <div
+            class="company-card group relative rounded-[2.5rem] border border-slate-100 bg-white overflow-hidden transition-all duration-700 hover:-translate-y-4 hover:shadow-[0_40px_100px_rgba(0,0,0,0.08)]"
+            data-category={company.category}
+          >
+            {/* Cabecera de la tarjeta con Logo Placeholder */}
+            <div class="relative h-48 bg-slate-900 overflow-hidden">
+              {/* Patrón Industrial de Fondo */}
+              <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]" />
+
+              {/* Degradado Naranja sutil */}
+              <div class="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-slate-900 to-transparent" />
+
+              {/* Badge Premium */}
+              {company.badge && (
+                <div class="absolute top-6 left-6 z-10">
+                  <span
+                    class={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-[10px] font-black uppercase tracking-widest text-white shadow-xl ${
+                      company.badge === "Premium"
+                        ? "bg-(--sjp-primary)"
+                        : company.badge === "Destacado"
+                          ? "bg-rose-600"
+                          : "bg-slate-700"
+                    }`}
+                  >
+                    <span class="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                    {company.badge}
+                  </span>
+                </div>
+              )}
+
+              {/* Logo Orbe (Glassmorphism) */}
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="relative group-hover:scale-110 transition-transform duration-700">
+                  <div class="absolute inset-[-15px] rounded-full bg-(--sjp-primary)/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div class="h-24 w-24 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl flex items-center justify-center shadow-2xl overflow-hidden p-4">
+                    {company.logo ? (
+                      <img
+                        src={company.logo}
+                        alt={company.name}
+                        class="w-full h-full object-contain"
+                      />
+                    ) : (
+                      <span class="text-3xl font-black text-white/40">
+                        {company.name.charAt(0)}
+                      </span>
+                    )}
+                    <div class="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contenido Detallado */}
+            <div class="p-8 pt-10">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <h3 class="text-2xl font-black tracking-tighter text-slate-900 group-hover:text-(--sjp-primary) transition-colors">
+                    {company.name}
+                  </h3>
+                  <p class="text-[10px] font-black uppercase tracking-[0.3em] text-(--sjp-primary)">
+                    {company.sector}
+                  </p>
+                </div>
+                <div class="rounded-xl bg-slate-50 px-3 py-1.5 border border-slate-100">
+                  <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-none">
+                    {company.categoryLabel}
+                  </span>
+                </div>
+              </div>
+
+              <p class="text-sm font-bold text-slate-500 leading-relaxed line-clamp-2 min-h-[3rem]">
+                {company.description}
+              </p>
+
+              {/* Ubicación */}
+              {company.location && (
+                <div class="mt-4 px-4 py-3 rounded-xl bg-slate-50/60 border border-slate-100 flex items-start gap-2">
+                  <svg class="h-4 w-4 text-slate-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <p class="text-[9px] font-black uppercase tracking-widest text-slate-400">Ubicación</p>
+                    <p class="text-xs font-bold text-slate-700">{company.location}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Certificaciones */}
+              {company.certifications && company.certifications.length > 0 && (
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {company.certifications.map((cert) => (
+                    <span class="inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-tighter px-2.5 py-1 rounded-lg bg-(--sjp-primary)/10 text-(--sjp-primary) border border-(--sjp-primary)/20">
+                      <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-2.77 3.066 3.066 0 00-3.58 3.048A3.066 3.066 0 006.267 3.455zm9.8 6.888a3.066 3.066 0 001.745-2.77 3.066 3.066 0 00-3.58 3.048A3.066 3.066 0 0016.067 10.343zM15.394 13.707a1.628 1.628 0 00-1.307-2.605l-.51 1.42a.563.563 0 00.331.925l.51-1.42a1.628 1.628 0 011.307 2.605zM6.75 12.429a3.75 3.75 0 01-3.154-1.597c-.788-.847-1.179-1.974-1.179-3.18 0-1.207.391-2.333 1.179-3.18A3.75 3.75 0 016.75 2.75h2.5a.75.75 0 010 1.5h-2.5c-.69 0-1.312.315-1.748.878-.436.562-.652 1.329-.652 2.102 0 .773.216 1.54.652 2.102.436.562 1.058.878 1.748.878h2.5a.75.75 0 010 1.5h-2.5zm9.5 0a3.75 3.75 0 003.154-1.597c.788-.847 1.179-1.974 1.179-3.18 0-1.207-.391-2.333-1.179-3.18A3.75 3.75 0 0016.25 2.75h-2.5a.75.75 0 000 1.5h2.5c.69 0 1.312.315 1.748.878.436.562.652 1.329.652 2.102 0 .773-.216 1.54-.652 2.102-.436.562-1.058.878-1.748.878h-2.5a.75.75 0 000 1.5h2.5z" clip-rule="evenodd" />
+                      </svg>
+                      {cert}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* Servicios Especializados */}
+              {company.services && company.services.length > 0 && (
+                <div class="mt-4">
+                  <p class="text-[9px] font-black uppercase tracking-[0.3em] text-slate-400 mb-2">Servicios</p>
+                  <div class="flex flex-wrap gap-2">
+                    {company.services.map((service) => (
+                      <span class="inline-flex text-[8px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 border border-slate-200">
+                        {service}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Stats Rápidos Premium */}
+              <div class="my-6 grid grid-cols-2 gap-4">
+                <div class="relative overflow-hidden rounded-2xl border border-slate-50 bg-slate-50/50 p-4 transition-all group-hover:bg-white group-hover:border-slate-100">
+                  <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">
+                    Impacto Laboral
+                  </p>
+                  <p class="text-lg font-black text-slate-900">
+                    {company.employees}+{" "}
+                    <span class="text-[10px] font-bold text-slate-500">
+                      Colaboradores
+                    </span>
+                  </p>
+                </div>
+                <div class="relative overflow-hidden rounded-2xl border border-slate-50 bg-slate-50/50 p-4 transition-all group-hover:bg-white group-hover:border-slate-100">
+                  <p class="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1">
+                    Antigüedad en Parque
+                  </p>
+                  <p class="text-lg font-black text-slate-900">
+                    {company.since}{" "}
+                    <span class="text-[10px] font-bold text-slate-500">
+                      años
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Contacto & Web Link (Nivel Dios) */}
+              <div class="space-y-4">
+                <div class="flex gap-3">
+                  <a
+                    href={`https://wa.me/57${company.whatsapp}?text=Hola%20${company.name}%2C%20me%20gustaría%20conocer%20más%20sobre%20sus%20servicios.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex-1 flex items-center justify-center gap-2 rounded-xl bg-green-600 py-3 text-[10px] font-black text-white hover:bg-green-700 transition-colors uppercase tracking-widest"
+                  >
+                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.255.949c-1.238.503-2.38 1.233-3.285 2.136-1.805 1.805-2.967 4.278-2.967 6.903 0 2.625 1.162 5.098 2.967 6.903 1.805 1.805 4.278 2.966 6.903 2.966 2.625 0 5.098-1.161 6.903-2.966 1.805-1.805 2.966-4.278 2.966-6.903 0-2.625-1.161-5.098-2.966-6.903-1.805-1.805-4.278-2.967-6.903-2.967z"/>
+                    </svg>
+                    WhatsApp
+                  </a>
+                  <a
+                    href={`mailto:${company.email}`}
+                    class="flex-1 flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-3 text-[10px] font-black text-slate-600 hover:bg-slate-50 transition-colors uppercase tracking-widest"
+                  >
+                    Enviar Email
+                  </a>
+                </div>
+
+                {/* Redes Sociales */}
+                {company.social && (Object.keys(company.social).length > 0) && (
+                  <div class="flex gap-2 justify-center py-3 border-t border-slate-100">
+                    {company.social.linkedin && (
+                      <a
+                        href={`https://linkedin.com/company/${company.social.linkedin}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center justify-center h-10 w-10 rounded-lg bg-slate-900 text-white hover:bg-blue-700 transition-colors"
+                        title="LinkedIn"
+                      >
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M16.777 2H3.223C2.548 2 2 2.548 2 3.223v13.554C2 17.452 2.548 18 3.223 18h13.554c.675 0 1.223-.548 1.223-1.223V3.223C18 2.548 17.452 2 16.777 2zM6.174 15.5H4.29V8.5h1.885v7zm-.95-8.022c-.604 0-1.093-.489-1.093-1.093s.489-1.093 1.093-1.093 1.093.489 1.093 1.093-.489 1.093-1.093 1.093zM15.5 15.5h-1.885v-3.402c0-.812-.292-1.364-.987-1.364-.538 0-.858.362-.999.713-.052.126-.065.302-.065.479v3.574h-1.885V8.5h1.885v1.081c.338-.521.943-1.266 2.292-1.266 1.673 0 2.925 1.092 2.925 3.441v3.744z"/>
+                        </svg>
+                      </a>
+                    )}
+                    {company.social.instagram && (
+                      <a
+                        href={`https://instagram.com/${company.social.instagram}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center justify-center h-10 w-10 rounded-lg bg-gradient-to-br from-pink-500 to-rose-500 text-white hover:scale-110 transition-transform"
+                        title="Instagram"
+                      >
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M10 1.802c2.67 0 2.987.01 4.042.059 2.71.123 3.851 1.244 3.974 3.976.048 1.056.059 1.371.059 4.041 0 2.67-.01 2.987-.059 4.041-.123 2.729-1.268 3.859-3.977 3.979-1.068.048-1.379.06-4.042.06-2.666 0-2.987-.01-4.04-.059-2.717-.13-3.853-1.256-3.977-3.979-.048-1.059-.06-1.37-.06-4.041 0-2.67.01-2.986.059-4.04.124-2.73 1.264-3.862 3.974-3.979 1.069-.048 1.38-.06 4.041-.06zM10 0C7.284 0 6.944.012 5.877.06 2.246.227.227 2.242.061 5.877.01 6.944 0 7.284 0 10s.012 3.057.06 4.123c.167 3.632 2.182 5.65 5.817 5.817 1.067.048 1.407.06 4.123.06s3.057-.012 4.123-.06c3.629-.167 5.652-2.182 5.816-5.817.05-1.066.061-1.407.061-4.123s-.012-3.056-.06-4.122C19.777 2.249 17.76.228 14.124.06 13.057.01 12.716 0 10 0z"/>
+                          <path d="M10 4.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110 -6.666 3.333 3.333 0 010 6.666zM13.87 4.622a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
+                        </svg>
+                      </a>
+                    )}
+                    {company.social.facebook && (
+                      <a
+                        href={`https://facebook.com/${company.social.facebook}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="flex items-center justify-center h-10 w-10 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                        title="Facebook"
+                      >
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M20 10a10 10 0 11-20 0 10 10 0 0120 0zm-4.5-6.5H13a3 3 0 00-3 3v2.5H8V10h2v5h2v-5h2.5V8.5H12V7a.5.5 0 01.5-.5h1.5V3.5z" clip-rule="evenodd"/>
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                )}
+
+                {company.website && (
+                  <a
+                    href={`https://${company.website}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group/web relative flex w-full items-center justify-between overflow-hidden rounded-2xl bg-linear-to-r from-(--sjp-primary) to-orange-600 p-5 shadow-lg transition-all hover:shadow-(--sjp-primary)/40 active:scale-95"
+                  >
+                    <div class="relative z-10">
+                      <p class="text-[8px] font-black uppercase tracking-[0.3em] text-white/70 mb-1">
+                        Sitio Web Oficial
+                      </p>
+                      <p class="text-sm font-black text-white tracking-widest">
+                        {company.website}
+                      </p>
+                    </div>
+                    <div class="relative z-10 flex h-10 w-10 items-center justify-center rounded-xl bg-white/20 backdrop-blur-md text-white group-hover/web:rotate-45 transition-transform">
+                      <svg
+                        class="h-5 w-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="3"
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </div>
+                    {/* Brillo dinámico */}
+                    <div class="absolute inset-0 w-1/2 -skew-x-45 bg-linear-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover/web:animate-[shimmer_2s_infinite]" />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    {/* Footer de sección */}
+    <div class="mt-20 flex flex-col items-center text-center">
+      <div class="h-1 w-12 bg-(--sjp-primary) mb-8"></div>
+      <p class="max-w-xl text-lg font-bold text-slate-500 leading-relaxed">
+        ¿Su empresa opera dentro de nuestro parque y no aparece en el directorio
+        oficial?
+      </p>
+      <a
+        href="/contacto"
+        class="mt-8 inline-flex items-center gap-4 rounded-full bg-slate-900 px-10 py-5 text-sm font-black uppercase tracking-widest text-white shadow-2xl transition-all hover:scale-105 hover:bg-black active:scale-95 no-underline"
+      >
+        Vincular mi Empresa
+        <svg
+          class="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes shimmer {
+    100% {
+      transform: translateX(200%) skewX(-45deg);
+    }
+  }
+</style>

@@ -1,0 +1,163 @@
+---
+export interface Feature {
+  icon: string;
+  title: string;
+  description?: string;
+}
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  features?: Feature[];
+}
+
+const {
+  title = "¿Qué nos Diferencia?",
+  subtitle = "Diferenciadores Clave",
+  features = [
+    {
+      icon: "📍",
+      title: "Ubicación Estratégica",
+      description: "Acceso principal a LATAM",
+    },
+    {
+      icon: "🛣️",
+      title: "Amplas Vías Internas",
+      description: "Infraestructura vial moderna",
+    },
+    { icon: "🛡️", title: "Vigilancia 24/7", description: "Seguridad integral" },
+    {
+      icon: "🔐",
+      title: "Control de Acceso 24/7",
+      description: "Tecnología de última generación",
+    },
+    { icon: "⚡", title: "ESD", description: "Energía disponible" },
+    {
+      icon: "🌳",
+      title: "Amplas Zonas Verdes",
+      description: "Espacios sustentables",
+    },
+    {
+      icon: "⚽",
+      title: "Escenarios Deportivos",
+      description: "Bienestar de empleados",
+    },
+    {
+      icon: "👥",
+      title: "Personal Calificado",
+      description: "Atención profesional 24/7",
+    },
+    {
+      icon: "🍽️",
+      title: "Plazoleta de Comidas",
+      description: "Servicios gastronómicos",
+    },
+    {
+      icon: "🏨",
+      title: "Hotel Empresarial",
+      description: "Hospedaje de calidad",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden py-24 md:py-40 bg-white">
+  {/* Fondo Ultra-Limpio (Sin azules dominantes) */}
+  <div class="absolute inset-0 z-0">
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(190,18,60,0.02)_0%,transparent_50%)]"
+    >
+    </div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-7xl px-4 md:px-6">
+    {/* Header Minimalista */}
+    <div class="mb-24 text-center animate-fade-in-up">
+      <div
+        class="inline-flex items-center gap-3 mb-6 rounded-full border border-slate-200 bg-white px-6 py-2 shadow-sm"
+      >
+        <span class="relative flex h-2 w-2">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-black/20 opacity-75"
+          ></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-black"
+          ></span>
+        </span>
+        <span
+          class="text-[11px] font-black uppercase tracking-[0.3em] text-slate-500"
+          >{subtitle}</span
+        >
+      </div>
+
+      <h2
+        class="text-5xl font-black tracking-tighter text-slate-950 md:text-8xl leading-[1.1]"
+      >
+        {title.split(" ").slice(0, 2).join(" ")}
+        <span class="block text-slate-500 italic">
+          {title.split(" ").slice(2).join(" ")}
+        </span>
+      </h2>
+    </div>
+
+    {/* Grid de características con estética minimalista */}
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+      {
+        features.map((feature, idx) => (
+          <div class="group relative" style={`animation-delay: ${idx * 0.1}s`}>
+            <div class="flex h-full flex-col items-center rounded-4xl border border-slate-100 bg-white p-10 shadow-[0_20px_50px_rgba(0,0,0,0.03)] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)]">
+              {/* Icono Neutral */}
+              <div class="relative mb-10 flex h-24 w-24 items-center justify-center">
+                <div class="absolute inset-0 rounded-3xl bg-slate-50 rotate-6 transition-transform group-hover:rotate-12 group-hover:scale-110" />
+                <div class="absolute inset-0 rounded-3xl border border-slate-100 bg-white shadow-xl transition-transform group-hover:-rotate-3" />
+                <span class="relative z-10 text-4xl transform transition-transform group-hover:scale-110">
+                  {feature.icon}
+                </span>
+              </div>
+
+              <h3 class="text-center text-xl font-black tracking-tight text-black leading-tight">
+                {feature.title}
+              </h3>
+
+              {feature.description && (
+                <p class="mt-4 text-center text-sm font-bold leading-relaxed text-slate-400">
+                  {feature.description}
+                </p>
+              )}
+
+              <div class="mt-auto pt-8">
+                <div class="h-1.5 w-8 rounded-full bg-slate-100 transition-all duration-500 group-hover:w-16 group-hover:bg-black" />
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    {/* Call to action Minimal - Noir */}
+    <div class="mt-32 text-center animate-fade-in-up">
+      <a
+        href="#contacto"
+        class="group relative inline-flex items-center gap-4 overflow-hidden rounded-4xl bg-black px-12 py-6 text-xl font-black uppercase tracking-widest text-white shadow-2xl transition-all hover:scale-105 no-underline"
+      >
+        <span class="relative z-10">Agendar Visita</span>
+        <svg
+          class="h-6 w-6 transition-transform group-hover:translate-x-1"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="3"
+            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+      <p
+        class="mt-8 text-xs font-black tracking-[0.4em] text-slate-300 uppercase"
+      >
+        Infraestructura líder desde 2009
+      </p>
+    </div>
+  </div>
+</section>

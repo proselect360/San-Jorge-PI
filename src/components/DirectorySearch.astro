@@ -1,0 +1,485 @@
+---
+export interface Category {
+  id: string;
+  name: string;
+  icon: string;
+  count: number;
+  color: string;
+}
+
+export interface Props {
+  categories?: Category[];
+}
+
+const {
+  categories = [
+    {
+      id: "logistica",
+      name: "Logística",
+      icon: "🚚",
+      count: 24,
+      color: "from-(--sjp-primary)",
+    },
+    {
+      id: "manufactura",
+      name: "Manufactura",
+      icon: "⚙️",
+      count: 18,
+      color: "from-slate-800",
+    },
+    {
+      id: "almacenamiento",
+      name: "Almacenamiento",
+      icon: "📦",
+      count: 32,
+      color: "from-slate-700",
+    },
+    {
+      id: "comercio",
+      name: "Comercio",
+      icon: "🏪",
+      count: 28,
+      color: "from-(--sjp-primary-strong)",
+    },
+    {
+      id: "servicios",
+      name: "Servicios",
+      icon: "💼",
+      count: 22,
+      color: "from-slate-600",
+    },
+    {
+      id: "tecnologia",
+      name: "Tecnología",
+      icon: "💻",
+      count: 16,
+      color: "from-(--sjp-primary)",
+    },
+  ],
+} = Astro.props;
+---
+
+{/* HERO SECTION - NIVEL 100 */}
+<section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-black pt-24 pb-32">
+  {/* Animated Grid Background */}
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.05)_25%,rgba(255,255,255,.05)_50%,transparent_50%,transparent_75%,rgba(255,255,255,.05)_75%,rgba(255,255,255,.05))] bg-[length:40px_40px] animate-pulse" />
+  </div>
+
+  {/* Gradient Orbs - Animated */}
+  <div class="absolute top-10 left-1/4 w-96 h-96 bg-(--sjp-primary)/20 rounded-full blur-3xl opacity-20 animate-blur" />
+  <div class="absolute bottom-10 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl opacity-20 animate-blur" style="animation-delay: 2s" />
+  <div class="absolute top-1/2 left-1/2 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl opacity-15 animate-blur" style="animation-delay: 4s" />
+
+  <div class="relative mx-auto max-w-7xl px-4 md:px-6">
+    {/* Breadcrumb Badge */}
+    <div class="mb-12 flex items-center gap-2">
+      <span class="inline-flex items-center px-4 py-2 rounded-full bg-(--sjp-primary)/10 border border-(--sjp-primary)/30 text-xs font-black uppercase tracking-widest text-(--sjp-primary)">
+        <span class="h-2 w-2 rounded-full bg-(--sjp-primary) mr-2 animate-pulse" />
+        Directorio Empresarial Oficial
+      </span>
+    </div>
+
+    <div class="max-w-4xl mb-16">
+      {/* Main Headline */}
+      <h1 class="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter leading-[1.1]">
+        <span class="block">Red de<br/></span>
+        <span class="block bg-gradient-to-r from-(--sjp-primary) via-orange-500 to-(--sjp-primary) bg-clip-text text-transparent animate-pulse">
+          Negocios Estratégica
+        </span>
+      </h1>
+
+      <p class="text-xl md:text-2xl text-slate-300 font-bold leading-relaxed max-w-2xl mb-8">
+        Accede al directorio completo de empresas líderes en logística, manufactura, tecnología y servicios. Más de <span class="text-(--sjp-primary) font-black">150 empresas</span> operando en San Jorge PI.
+      </p>
+
+      {/* Advanced Stats Grid */}
+      <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mb-12">
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-(--sjp-primary)/50">
+          <span class="block text-3xl md:text-4xl font-black text-(--sjp-primary) mb-1">150+</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">Empresas</span>
+        </div>
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-orange-500/50">
+          <span class="block text-3xl md:text-4xl font-black text-orange-500 mb-1">5K+</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">Empleados</span>
+        </div>
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-blue-500/50">
+          <span class="block text-3xl md:text-4xl font-black text-blue-500 mb-1">25+</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">Sectores</span>
+        </div>
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-(--sjp-primary)/50">
+          <span class="block text-3xl md:text-4xl font-black text-(--sjp-primary) mb-1">45K+</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">M² Ocupados</span>
+        </div>
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-emerald-500/50">
+          <span class="block text-3xl md:text-4xl font-black text-emerald-500 mb-1">24/7</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">Operando</span>
+        </div>
+        <div class="group relative rounded-xl border border-slate-700/50 bg-white/5 backdrop-blur-sm p-4 hover:bg-white/10 transition-all hover:border-rose-500/50">
+          <span class="block text-3xl md:text-4xl font-black text-rose-500 mb-1">ISO</span>
+          <span class="text-xs md:text-sm font-bold text-slate-400 uppercase tracking-tighter">Certificados</span>
+        </div>
+      </div>
+
+      {/* CTA Buttons */}
+      <div class="flex flex-col sm:flex-row gap-4">
+        <button
+          onclick="document.getElementById('search-empresas')?.focus(); document.getElementById('search-empresas')?.scrollIntoView({behavior: 'smooth'});"
+          class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-(--sjp-primary) to-orange-600 text-white font-black uppercase tracking-widest text-sm hover:shadow-2xl hover:shadow-(--sjp-primary)/40 transition-all duration-300 active:scale-95"
+        >
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          Buscar Empresas
+          <div class="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity blur" />
+        </button>
+
+        <a
+          href="#categorias"
+          class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl border-2 border-(--sjp-primary) bg-black/50 text-white font-black uppercase tracking-widest text-sm hover:bg-(--sjp-primary)/10 transition-all duration-300"
+        >
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" />
+          </svg>
+          Explorar por Categoría
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {/* Divider Wave */}
+  <svg class="absolute bottom-0 w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.87,168.19-17.8,250.6-.3C823.78,31,906.4,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="white" />
+  </svg>
+</section>
+
+<section class="relative py-16 md:py-24">
+  <div class="mx-auto max-w-7xl px-4 md:px-6">
+    {/* Buscador interactivo */}
+    <div class="mb-12">
+      <div class="relative group">
+        <input
+          type="text"
+          id="search-empresas"
+          placeholder="Busca empresas por nombre, sector o servicio..."
+          class="w-full rounded-2xl border-2 border-slate-200 px-6 py-5 text-lg font-medium text-slate-900 placeholder-slate-400 bg-white/50 backdrop-blur-sm transition-all duration-300 focus:border-(--sjp-primary) focus:outline-none focus:ring-4 focus:ring-(--sjp-primary)/10"
+        />
+        <div
+          class="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-4"
+        >
+          {/* Contador rápido */}
+          <span
+            id="results-counter"
+            class="hidden md:inline-flex items-center rounded-lg bg-slate-100 px-3 py-1 text-xs font-black text-slate-500 uppercase tracking-tighter"
+          >
+            Cargando...
+          </span>
+          <svg
+            class="h-6 w-6 text-slate-400 group-focus-within:text-(--sjp-primary) transition-colors"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    {/* Categorías filtro */}
+    <div class="mb-8" id="categorias">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6"
+      >
+        <div>
+          <h3
+            class="text-[10px] uppercase tracking-[0.3em] font-black text-(--sjp-primary) mb-1"
+          >
+            Filtrar por categoría
+          </h3>
+          <p class="text-xs font-bold text-slate-400">
+            Selecciona uno o más sectores para refinar tu búsqueda
+          </p>
+        </div>
+
+        <button
+          id="clear-all"
+          class="hidden text-[10px] font-black uppercase tracking-widest text-rose-600 hover:text-rose-700 transition-colors"
+        >
+          Limpiar todos los filtros
+        </button>
+      </div>
+
+      <div
+        class="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+      >
+        {
+          categories.map((category) => (
+            <button
+              class="category-filter group relative flex flex-col items-center justify-center rounded-2xl p-6 transition-all duration-500 border-2 border-slate-100 bg-white hover:border-(--sjp-primary) hover:shadow-xl hover:-translate-y-1 cursor-pointer overflow-hidden"
+              data-category={category.id}
+            >
+              <div class="relative z-10 flex flex-col items-center">
+                <div class="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-500">
+                  {category.icon}
+                </div>
+                <p class="font-black text-slate-900 text-xs uppercase tracking-tighter text-center">
+                  {category.name}
+                </p>
+                <div class="mt-2 h-0.5 w-0 bg-(--sjp-primary) transition-all duration-500 group-hover:w-full" />
+              </div>
+
+              {/* Estado Activo Background */}
+              <div class="active-bg absolute inset-0 bg-(--sjp-primary)/5 opacity-0 transition-opacity duration-300 pointer-events-none" />
+            </button>
+          ))
+        }
+      </div>
+    </div>
+
+    {/* Tags de filtros activos */}
+    <div
+      class="flex flex-wrap items-center gap-3 min-h-[40px]"
+      id="active-filters"
+    >
+      {/* Generado dinámicamente con JS */}
+    </div>
+  </div>
+
+  {/* Mensaje de Sin Resultados (Oculto por defecto) */}
+  <div id="no-results" class="hidden py-20 text-center animate-fade-in">
+    <div
+      class="mx-auto w-24 h-24 rounded-full bg-slate-50 flex items-center justify-center mb-6"
+    >
+      <svg
+        class="h-10 w-10 text-slate-300"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9.172 9.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        ></path>
+      </svg>
+    </div>
+    <h4 class="text-2xl font-black text-slate-900 uppercase tracking-tight">
+      No encontramos coincidencias
+    </h4>
+    <p class="mt-2 text-slate-500 font-bold">
+      Intenta ajustar tus filtros o buscar con otro término.
+    </p>
+    <button
+      id="reset-search"
+      class="mt-8 text-xs font-black uppercase tracking-widest text-(--sjp-primary) border-b-2 border-(--sjp-primary) pb-1 hover:text-black hover:border-black transition-all"
+    >
+      Ver todas las empresas
+    </button>
+  </div>
+</section>
+
+<script>
+  function initDirectorySearch() {
+    const searchInput = document.getElementById(
+      "search-empresas",
+    ) as HTMLInputElement;
+    const categoryButtons = document.querySelectorAll(".category-filter");
+    const activeFiltersContainer = document.getElementById("active-filters");
+    const resultsCounter = document.getElementById("results-counter");
+    const noResults = document.getElementById("no-results");
+    const clearAllBtn = document.getElementById("clear-all");
+    const resetSearchBtn = document.getElementById("reset-search");
+
+    let state = {
+      searchTerm: "",
+      selectedCategories: new Set<string>(),
+    };
+
+    function updateDisplay() {
+      const companies = document.querySelectorAll(".company-card");
+      let visibleCount = 0;
+
+      companies.forEach((card) => {
+        const title =
+          card.querySelector("h3")?.textContent?.toLowerCase() || "";
+        const description =
+          card.querySelector("p")?.textContent?.toLowerCase() || "";
+        const sector = (
+          card.querySelector("p.text-\\[10px\\]")?.textContent || ""
+        ).toLowerCase();
+        const category = card.getAttribute("data-category") || "";
+
+        const matchesSearch =
+          state.searchTerm === "" ||
+          title.includes(state.searchTerm) ||
+          description.includes(state.searchTerm) ||
+          sector.includes(state.searchTerm);
+
+        const matchesCategory =
+          state.selectedCategories.size === 0 ||
+          state.selectedCategories.has(category);
+
+        const isVisible = matchesSearch && matchesCategory;
+        card.classList.toggle("hidden", !isVisible);
+        if (isVisible) visibleCount++;
+      });
+
+      // Actualizar UI del buscador
+      if (resultsCounter) {
+        resultsCounter.textContent = `${visibleCount} Empresas`;
+        resultsCounter.classList.remove("hidden");
+      }
+
+      // Mostrar/Ocultar mensaje de sin resultados
+      noResults?.classList.toggle("hidden", visibleCount > 0);
+
+      // Mostrar/Ocultar botón de limpiar filtros
+      const hasFiltros =
+        state.searchTerm !== "" || state.selectedCategories.size > 0;
+      clearAllBtn?.classList.toggle("hidden", !hasFiltros);
+
+      renderActiveFilters();
+      updateButtonStates();
+    }
+
+    function renderActiveFilters() {
+      if (!activeFiltersContainer) return;
+
+      let html = "";
+
+      // Tag de búsqueda
+      if (state.searchTerm) {
+        html += `
+          <div class="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-white animate-fade-in shadow-lg">
+            <span>Búsqueda: ${state.searchTerm}</span>
+            <button data-type="search" class="hover:text-rose-400 transition-colors ml-1 p-0.5">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+        `;
+      }
+
+      // Tags de categorías
+      state.selectedCategories.forEach((catId) => {
+        const btn = document.querySelector(`[data-category="${catId}"]`);
+        const name = btn?.querySelector("p")?.textContent?.trim() || catId;
+
+        html += `
+          <div class="inline-flex items-center gap-2 rounded-xl bg-(--sjp-primary) px-4 py-2 text-[10px] font-black uppercase tracking-widest text-white animate-fade-in shadow-lg shadow-(--sjp-primary)/20">
+            <span>${name}</span>
+            <button data-type="category" data-id="${catId}" class="hover:text-black transition-colors ml-1 p-0.5">
+               <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+        `;
+      });
+
+      activeFiltersContainer.innerHTML = html;
+
+      // Listeners para los botones de cerrar tags (delegación de eventos)
+      activeFiltersContainer.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const type = btn.getAttribute("data-type");
+          if (type === "search") {
+            state.searchTerm = "";
+            if (searchInput) searchInput.value = "";
+          } else if (type === "category") {
+            const id = btn.getAttribute("data-id");
+            if (id) state.selectedCategories.delete(id);
+          }
+          updateDisplay();
+        });
+      });
+    }
+
+    function updateButtonStates() {
+      categoryButtons.forEach((btn) => {
+        const catId = btn.getAttribute("data-category");
+        const isActive = catId && state.selectedCategories.has(catId);
+
+        btn.classList.toggle("border-(--sjp-primary)", !!isActive);
+        btn.classList.toggle("bg-slate-50", !!isActive);
+        const bg = btn.querySelector(".active-bg");
+        if (bg) bg.classList.toggle("opacity-100", !!isActive);
+      });
+    }
+
+    // Eventos
+    searchInput?.addEventListener("input", (e) => {
+      state.searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+      updateDisplay();
+    });
+
+    categoryButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const catId = btn.getAttribute("data-category");
+        if (catId) {
+          if (state.selectedCategories.has(catId)) {
+            state.selectedCategories.delete(catId);
+          } else {
+            state.selectedCategories.add(catId);
+          }
+          updateDisplay();
+        }
+      });
+    });
+
+    clearAllBtn?.addEventListener("click", () => {
+      state.searchTerm = "";
+      state.selectedCategories.clear();
+      if (searchInput) searchInput.value = "";
+      updateDisplay();
+    });
+
+    resetSearchBtn?.addEventListener("click", () => {
+      state.searchTerm = "";
+      state.selectedCategories.clear();
+      if (searchInput) searchInput.value = "";
+      updateDisplay();
+    });
+
+    // Inicializar contador al cargar
+    updateDisplay();
+  }
+
+  // Ejecutar tanto en navegación inicial como en transiciones de Astro (View Transitions)
+  document.addEventListener("DOMContentLoaded", initDirectorySearch);
+  document.addEventListener("astro:page-load", initDirectorySearch);
+</script>
+
+<style>
+  @keyframes blur-animation {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translate(30px, -30px) scale(1.1);
+      opacity: 0.35;
+    }
+  }
+
+  .animate-blur {
+    animation: blur-animation 8s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+</style>

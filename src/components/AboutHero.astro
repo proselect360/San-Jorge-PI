@@ -1,0 +1,67 @@
+---
+
+---
+
+<section
+    class="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-slate-950 pt-20"
+>
+    {/* Background Image Placeholder / Effect */}
+    <div class="absolute inset-0 z-0">
+        <div
+            class="absolute inset-0 bg-linear-to-b from-slate-950/80 via-slate-950/40 to-slate-950/90 z-10"
+        >
+        </div>
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(242,116,5,0.1),transparent_70%)] z-10"
+        >
+        </div>
+        {/* Aquí iría una imagen de alta calidad de la infraestructura */}
+        <div
+            class="h-full w-full bg-[url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-30"
+        >
+        </div>
+    </div>
+
+    <div class="container relative z-20 mx-auto px-4 text-center">
+        <div class="mx-auto max-w-4xl">
+            <div class="mb-6 flex justify-center">
+                <div class="h-1 w-20 bg-(--sjp-primary) rounded-full"></div>
+            </div>
+            <h1
+                class="text-4xl md:text-7xl font-black text-white uppercase tracking-tighter leading-tight animate-fade-in-up"
+            >
+                Más que Infraestructura, <br />
+                <span class="text-white/60 italic font-medium"
+                    >un Aliado Estratégico</span
+                >
+            </h1>
+            <p
+                class="mt-8 text-xl text-slate-300 font-medium max-w-2xl mx-auto opacity-0 animate-fade-in-up animation-delay-300"
+            >
+                Desde 2009, transformamos el paisaje industrial de la Sabana de
+                Occidente con soluciones logísticas de vanguardia.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animation-delay-300 {
+        animation-delay: 0.3s;
+    }
+</style>

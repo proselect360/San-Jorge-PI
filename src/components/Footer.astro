@@ -1,0 +1,205 @@
+---
+export interface Props {
+  company?: {
+    name: string;
+    description: string;
+  };
+  whatsappNumber?: string;
+  email?: string;
+  phone?: string;
+  location?: string;
+}
+
+const {
+  company = {
+    name: "Parque Industrial San Jorge",
+    description: "Terminal Metropolitano de Carga",
+  },
+  whatsappNumber = "573000000000",
+  email = "info@sanjorgepi.com",
+  phone = "+57 1 XXXX XXXX",
+  location = "PQ75+Q8 Mosquera, Cundinamarca",
+} = Astro.props;
+---
+
+<footer class="bg-slate-900 text-white pt-24 pb-12">
+  <div class="mx-auto max-w-7xl px-4 py-20 md:px-6">
+    {/* Grid principal */}
+    <div class="grid gap-16 md:grid-cols-2 lg:grid-cols-4">
+      {/* Columna 1: Empresa */}
+      <div class="animate-fade-in-up">
+        <div class="mb-6 flex items-center gap-3">
+          <img
+            src="/logo.png"
+            alt="San Jorge PI"
+            class="h-10 w-10 rounded-xl shadow-sm"
+          />
+          <div class="flex flex-col">
+            <span
+              class="font-black text-base text-white uppercase tracking-tight"
+              >{company.name}</span
+            >
+            <p
+              class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400"
+            >
+              {company.description}
+            </p>
+          </div>
+        </div>
+        <div class="space-y-2 mt-4">
+          <p class="text-sm font-bold text-white/40">Fundado: 2009</p>
+          <p class="text-sm font-bold text-white/40">
+            {location}
+          </p>
+        </div>
+      </div>
+
+      {/* Columna 2: Espacios */}
+      <div>
+        <h3
+          class="mb-8 font-black uppercase tracking-widest text-xs text-white/40"
+        >
+          Espacios Disponibles
+        </h3>
+        <nav class="space-y-4">
+          {
+            [
+              "Oficinas",
+              "Bodegas Semi-Industrial",
+              "Bodegas Industrial",
+              "Locales Comerciales",
+              "Lotes a Medida",
+            ].map((item) => (
+              <a
+                href="/#inmuebles"
+                class="block text-sm font-bold text-slate-500 transition-all hover:text-black hover:translate-x-1"
+              >
+                {item}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+
+      {/* Columna 3: Servicios */}
+      <div>
+        <h3
+          class="mb-8 font-black uppercase tracking-widest text-xs text-white/40"
+        >
+          Servicios
+        </h3>
+        <nav class="space-y-4">
+          {
+            [
+              "Plazoleta de Comidas",
+              "Hotel Empresarial",
+              "Estación de Servicio",
+              "Centros de Convenciones",
+              "Báscula Camionera",
+            ].map((item) => (
+              <a
+                href="/#servicios"
+                class="block text-sm font-bold text-slate-500 transition-all hover:text-black hover:translate-x-1"
+              >
+                {item}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+
+      {/* Columna 4: Contacto */}
+      <div>
+        <h3
+          class="mb-8 font-black uppercase tracking-widest text-xs text-white/40"
+        >
+          Contacto
+        </h3>
+        <div class="space-y-4">
+          <a
+            href={`mailto:${email}`}
+            class="block text-sm font-bold text-white/60 transition hover:text-white"
+          >
+            {email}
+          </a>
+          <a
+            href={`tel:${phone.replace(/\s/g, "")}`}
+            class="block text-sm font-bold text-white/60 transition hover:text-white"
+          >
+            {phone}
+          </a>
+          <div
+            class="mt-12 flex flex-col md:flex-row items-center justify-between gap-8 pt-12 border-t border-white/5"
+          >
+            <div
+              class="flex items-center gap-4 text-xs font-bold text-white/40"
+            >
+              <span>Contacts</span>
+              <span>Enlaces Rep.</span>
+              <span>Expositores</span>
+            </div>
+
+            <a
+              href="#"
+              class="group flex items-center gap-4 rounded-xl bg-(--sjp-primary) px-12 py-4 text-sm font-black text-white shadow-2xl transition-all hover:scale-105 no-underline"
+            >
+              <span class="tracking-widest uppercase"
+                >Paga tu Administración PSE</span
+              >
+              <img
+                src="/pse.png"
+                alt="PSE"
+                class="h-8 brightness-0 invert opacity-80"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Divisor Minimal */}
+    <div class="my-16 border-t border-slate-100 opacity-50"></div>
+
+    {/* Copyright */}
+    <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+      <p class="text-xs font-bold text-white/20">
+        &copy; 2009-2026 <span class="text-white/40">{company.name}</span>.
+      </p>
+
+      {/* Redes sociales - Escala de grises Premium */}
+      <div class="flex items-center gap-8">
+        {
+          [
+            {
+              icon: "Facebook",
+              href: "#",
+              path: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z",
+            },
+            {
+              icon: "Instagram",
+              href: "#",
+              path: "M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0m5.894 3.772c.894 0 1.62.724 1.62 1.62 0 .894-.726 1.62-1.62 1.62-.894 0-1.62-.726-1.62-1.62.001-.896.726-1.62 1.62-1.62zM12 3.26c2.423 0 2.714.01 3.674.048 1.644.075 2.61.422 3.22.704.81.314 1.387.81 1.995 1.418.608.608 1.104 1.185 1.418 1.995.282.61.63 1.576.704 3.22.038.96.049 1.25.049 3.674s-.01 2.714-.048 3.674c-.075 1.644-.422 2.61-.704 3.22a5.361 5.361 0 01-1.418 1.995c-.608.608-1.185 1.104-1.995 1.418-.61.282-1.576.63-3.22.704-.96.038-1.25.049-3.674.049s-2.714-.01-3.674-.048c-1.644-.075-2.61-.422-3.22-.704a5.361 5.361 0 01-1.995-1.418c-.608-.608-1.104-1.185-1.418-1.995-.282-.61-.63-1.576-.704-3.22-.038-.96-.049-1.25-.049-3.674s.01-2.714.048-3.674c.075-1.644.422-2.61.704-3.22a5.361 5.361 0 011.418-1.995c.608-.608 1.185-1.104 1.995-1.418.61-.282 1.576-.63 3.22-.704.96-.037 1.251-.048 3.674-.048zm0 5.838a3.403 3.403 0 100 6.806 3.403 3.403 0 000-6.806zm0 5.608c-1.208 0-2.192-.982-2.192-2.192s.982-2.192 2.192-2.192 2.192.982 2.192 2.192-1 2.192-2.192 2.192z",
+            },
+            {
+              icon: "LinkedIn",
+              href: "#",
+              path: "M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.725-2.004 1.425-.103.25-.129.599-.129.949v5.431h-3.523v-11h3.394v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 8.855c-1.144 0-2.063-.931-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.134-.925 2.065-2.064 2.065zm1.782 11.597H3.555v-11h3.564v11zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z",
+            },
+          ].map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-slate-400 transition-all hover:text-(--sjp-primary) hover:scale-125"
+              aria-label={social.icon}
+            >
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d={social.path} />
+              </svg>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</footer>

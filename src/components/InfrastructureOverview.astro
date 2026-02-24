@@ -1,0 +1,117 @@
+---
+const stats = [
+    { value: "15+ años", label: "Trayectoria" },
+    { value: "150+ empresas", label: "Clientes Activos" },
+    { value: "45K+", label: "M² Disponibles" },
+];
+
+const services = [
+    "Plazoleta Gourmet",
+    "Business Hotel",
+    "Estación 24/7",
+    "Báscula Certificada",
+    "Summit Center",
+    "Seguridad VIP",
+];
+---
+
+<section class="relative z-10 py-24 bg-white">
+    <div class="mx-auto max-w-7xl px-4 md:px-6">
+        <div class="grid lg:grid-cols-3 gap-8">
+            {/* Columna de Estadísticas */}
+            <div class="lg:col-span-1 space-y-6">
+                {
+                    stats.map((stat) => (
+                        <div class="group relative overflow-hidden rounded-3xl border border-slate-100 bg-white p-10 shadow-[0_20px_50px_rgba(0,0,0,0.03)] transition-all hover:-translate-y-2">
+                            <div class="text-4xl font-black tracking-tighter text-slate-950 mb-2">
+                                {stat.value}
+                            </div>
+                            <div class="text-[10px] font-black uppercase tracking-widest text-slate-600">
+                                {stat.label}
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+
+            {/* Card de Servicios Destacados */}
+            <div
+                class="lg:col-span-2 relative overflow-hidden rounded-[2.5rem] border border-slate-100 bg-slate-50/50 p-12 shadow-[0_32px_64px_rgba(0,0,0,0.05)]"
+            >
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-12">
+                        <div class="h-1 w-12 bg-(--sjp-primary)"></div>
+                        <h3
+                            class="text-[11px] font-black uppercase tracking-widest text-slate-900"
+                        >
+                            Ecosistema & Infraestructura
+                        </h3>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-y-10 gap-x-12">
+                        {
+                            services.map((item) => (
+                                <div class="flex items-center gap-5 group/item">
+                                    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white border border-slate-100 text-black group-hover/item:bg-black group-hover/item:text-white transition-all shadow-sm">
+                                        <svg
+                                            class="h-6 w-6"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="3"
+                                                d="M5 13l4 4L19 7"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <span class="text-base font-black text-black transition-colors">
+                                        {item}
+                                    </span>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                {/* Decoración Abstracta */}
+                <div
+                    class="absolute -bottom-10 -right-10 h-64 w-64 rounded-full bg-slate-200/20 blur-3xl opacity-50"
+                >
+                </div>
+
+                {/* Barra de Especialidades */}
+                <div class="mt-20 pt-10 border-t border-slate-200">
+                    <div
+                        class="flex flex-wrap justify-between gap-10 items-center"
+                    >
+                        {
+                            [
+                                {
+                                    label: "ESPECIFICACIONES INDUSTRIALES",
+                                    icon: "🏗️",
+                                },
+                                {
+                                    label: "PROYECTOS BUILD-TO-SUIT",
+                                    icon: "📐",
+                                },
+                                { label: "LOGÍSTICA PREVENTIVA", icon: "🚛" },
+                            ].map((item) => (
+                                <div class="flex items-center gap-4 transition-all hover:scale-105 group/spec">
+                                    <span class="text-2xl transform transition-transform group-hover/spec:scale-110">
+                                        {item.icon}
+                                    </span>
+                                    <span class="text-[10px] font-black tracking-widest text-slate-600 group-hover/spec:text-black transition-colors uppercase">
+                                        {item.label}
+                                    </span>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

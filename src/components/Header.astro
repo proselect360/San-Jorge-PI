@@ -1,0 +1,204 @@
+---
+export interface Props {
+  title?: string;
+  whatsappNumber?: string;
+}
+
+const {
+  title = "Parque Industrial San Jorge",
+  whatsappNumber = "573000000000",
+} = Astro.props;
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-white/5 bg-slate-900/60 backdrop-blur-2xl shadow-2xl transition-all duration-500"
+>
+  <div
+    class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-6"
+  >
+    {/* Logo/Marca Minimalista */}
+    <a href="/" class="group relative flex items-center gap-3 no-underline">
+      <div class="relative overflow-hidden rounded-xl bg-slate-100 p-px">
+        <div
+          class="rounded-[10px] bg-white p-1.5 transition-transform group-hover:scale-105"
+        >
+          <img
+            src="/logo.png"
+            alt="San Jorge PI"
+            class="h-8 w-8 object-contain"
+          />
+        </div>
+      </div>
+      <div>
+        <p class="text-base font-black tracking-tight text-white uppercase">
+          {title}
+        </p>
+        <div class="flex items-center gap-1.5">
+          <span class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"
+          ></span>
+          <p
+            class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400"
+          >
+            Mosquera, Cundinamarca
+          </p>
+        </div>
+      </div>
+    </a>
+    {/* Navegación Desktop Neutral */}
+    <nav class="hidden items-center gap-6 lg:flex">
+      {
+        [
+          { href: "/nosotros", label: "Nosotros" },
+          { href: "/#inmuebles", label: "Oferta Inmob." },
+          { href: "/#servicios", label: "Servicios" },
+          { href: "/directorio-empresarial", label: "Empresas" },
+          { href: "/contacto", label: "Contacto" },
+        ].map(({ href, label }) => (
+          <a
+            href={href}
+            class="relative px-2 py-2 text-xs font-black text-white/70 transition-all hover:text-white no-underline group uppercase tracking-widest"
+          >
+            <span class="relative z-10">{label}</span>
+            <span class="absolute bottom-0 left-0 h-0.5 w-0 bg-(--sjp-primary) transition-all group-hover:w-full" />
+          </a>
+        ))
+      }
+    </nav>
+
+    {/* Acciones Noir */}
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4">
+        {/* Espacio reservado para futuras acciones si es necesario */}
+      </div>
+
+      {/* WhatsApp already added in previous step */}
+
+      {/* Menu Mobile Trigger Improved */}
+      <button
+        id="mobile-menu-btn"
+        class="relative flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 shadow-sm transition-all hover:bg-white/10 active:scale-95 lg:hidden"
+        aria-label="Abrir menú"
+      >
+        <div class="space-y-1.5">
+          <span class="block h-0.5 w-6 bg-white transition-all" id="m-line-1"
+          ></span>
+          <span class="block h-0.5 w-4 bg-white transition-all" id="m-line-2"
+          ></span>
+        </div>
+      </button>
+
+      {/* Botón Accesos Siempre Visible */}
+      <a
+        href="https://superaccess.co/industrial2/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative flex items-center gap-2 overflow-hidden rounded-xl bg-(--sjp-primary) px-4 py-2.5 text-xs font-black text-white! shadow-xl transition-all hover:scale-105 active:scale-95 no-underline uppercase tracking-widest"
+      >
+        <span class="relative z-10">ACCESOS</span>
+      </a>
+    </div>
+  </div>
+
+  {/* Navegación Mobile Glassmorphism */}
+  <nav
+    id="mobile-nav"
+    class="pointer-events-none absolute left-4 right-4 top-20 translate-y-4 overflow-hidden rounded-3xl border border-slate-100 bg-white/90 opacity-0 backdrop-blur-2xl transition-all duration-300 lg:hidden"
+  >
+    <div class="space-y-1 p-4">
+      {
+        [
+          { href: "/nosotros", label: "Nosotros" },
+          { href: "/#inmuebles", label: "Oferta Inmob." },
+          { href: "/#servicios", label: "Servicios" },
+          { href: "/directorio-empresarial", label: "Empresas" },
+          { href: "/contacto", label: "Contacto" },
+        ].map(({ href, label }) => (
+          <a
+            href={href}
+            class="block rounded-xl px-4 py-3 text-sm font-black text-slate-600 transition-all hover:bg-slate-100 hover:text-black no-underline"
+          >
+            {label}
+          </a>
+        ))
+      }
+      <div class="mt-4 pt-4 border-t border-slate-100 space-y-3">
+        <a
+          href="https://superaccess.co/industrial2/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex w-full items-center justify-center gap-2 rounded-xl bg-(--sjp-primary) py-4 text-sm font-black text-white shadow-lg no-underline uppercase tracking-widest"
+        >
+          GENERAR ACCESOS
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    const setupMenu = () => {
+      const menuButton = document.getElementById("mobile-menu-btn");
+      const mobileNav = document.getElementById("mobile-nav");
+      const line1 = document.getElementById("m-line-1");
+      const line2 = document.getElementById("m-line-2");
+      let isOpen = false;
+
+      if (menuButton && mobileNav) {
+        menuButton.addEventListener("click", () => {
+          isOpen = !isOpen;
+
+          if (isOpen) {
+            mobileNav.classList.remove(
+              "pointer-events-none",
+              "opacity-0",
+              "translate-y-4",
+            );
+            mobileNav.classList.add(
+              "pointer-events-auto",
+              "opacity-100",
+              "translate-y-0",
+            );
+            line1?.classList.add("rotate-45", "translate-y-2");
+            line2?.classList.add("-rotate-45", "-translate-y-0.5", "w-6");
+            line2?.classList.remove("w-4");
+          } else {
+            mobileNav.classList.add(
+              "pointer-events-none",
+              "opacity-0",
+              "translate-y-4",
+            );
+            mobileNav.classList.remove(
+              "pointer-events-auto",
+              "opacity-100",
+              "translate-y-0",
+            );
+            line1?.classList.remove("rotate-45", "translate-y-2");
+            line2?.classList.remove("-rotate-45", "-translate-y-0.5", "w-6");
+            line2?.classList.add("w-4");
+          }
+        });
+
+        // Cerrar al clickear fuera
+        document.addEventListener("click", (e) => {
+          const target = e.target as HTMLElement;
+          if (
+            isOpen &&
+            !mobileNav.contains(target) &&
+            !menuButton.contains(target)
+          ) {
+            menuButton.click();
+          }
+        });
+
+        // Cerrar al clickear links
+        mobileNav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            if (isOpen) menuButton.click();
+          });
+        });
+      }
+    };
+
+    setupMenu();
+    document.addEventListener("astro:after-swap", setupMenu);
+  </script>
+</header>

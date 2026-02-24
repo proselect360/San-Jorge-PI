@@ -1,0 +1,193 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  primaryCTA?: {
+    text: string;
+    href: string;
+  };
+  secondaryCTA?: {
+    text: string;
+    href: string;
+  };
+  location?: string;
+  stats?: Array<{ value: string; label: string }>;
+}
+
+const {
+  title = "Terminal Metropolitano de Carga y Parque Industrial San Jorge",
+  subtitle = "Mosquera, Cundinamarca",
+  description = "Infraestructura moderna desde 2009. Centro logístico y comercial líder con soluciones integrales: oficinas, bodegas industriales, centros de convenciones, hotel, estación de servicio y plazoleta de comidas.",
+  primaryCTA = { text: "Ver Disponibilidad", href: "#inmuebles" },
+  secondaryCTA = { text: "Agendar Visita", href: "#contacto" },
+  location = "Mosquera, Zona Próspera de Cundinamarca",
+  stats = [
+    { value: "15+ años", label: "Trayectoria" },
+    { value: "150+ empresas", label: "Clientes Activos" },
+    { value: "45K+", label: "M² Disponibles" },
+  ],
+} = Astro.props;
+---
+
+<section
+  id="hero-section"
+  class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-slate-950 text-center"
+>
+  {/* Fondo con Imagen y Efecto Ken Burns Suave */}
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center bg-no-repeat animate-ken-burns"
+      style="background-image: url('/hero san jorge.png');"
+    >
+    </div>
+    {/* Gradients para Legibilidad - Cinematic & High-Contrast */}
+    <div
+      class="absolute inset-0 bg-linear-to-b from-black/60 via-black/20 to-black/80"
+    >
+    </div>
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(242,116,5,0.08)_0%,transparent_60%)]"
+    >
+    </div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-24">
+    <div class="flex flex-col items-center">
+      {/* Subtitle Animation - Neutral Glass */}
+      <div
+        class="mb-8 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-md px-5 py-2 shadow-2xl mx-auto animate-fade-in-up animation-delay-100"
+      >
+        <span class="relative flex h-2 w-2">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"
+          ></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"
+          ></span>
+        </span>
+        <span
+          class="text-[10px] font-black uppercase tracking-[0.3em] text-white/90"
+          >{subtitle}</span
+        >
+      </div>
+
+      {/* Title Animation - Pure & Strong */}
+      <h1
+        id="hero-title"
+        class="text-balance text-4xl font-black tracking-tighter text-white md:text-8xl leading-none drop-shadow-2xl animate-fade-in-up animation-delay-200 spotlight-text uppercase"
+      >
+        Parque Industrial <span class="block italic text-white/90"
+          >San Jorge</span
+        >
+      </h1>
+
+      {/* Description Animation */}
+      <p
+        class="mt-8 mx-auto max-w-3xl text-xl font-bold leading-relaxed text-white animate-fade-in-up animation-delay-300"
+      >
+        Logística Estratégica para el Futuro de Colombia
+      </p>
+
+      {/* Stats Quick View based on image */}
+      <div
+        class="mt-10 flex flex-wrap justify-center gap-12 text-white/80 font-black tracking-widest uppercase text-xs animate-fade-in-up animation-delay-400"
+      >
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-2xl text-white">150+</span>
+          <span>Empresas</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-2xl text-white">500</span>
+          <span>Hectáreas</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <span class="text-2xl text-white">1,000+</span>
+          <span>Empleos</span>
+        </div>
+      </div>
+
+      {/* Action Center - Refined CTAs */}
+      <div
+        class="mt-12 flex flex-col items-center justify-center gap-6 sm:flex-row animate-fade-in-up animation-delay-400"
+      >
+        <a
+          href={primaryCTA.href}
+          class="group relative flex w-full items-center justify-center gap-4 overflow-hidden rounded-xl bg-(--sjp-primary) px-12 py-5 text-lg font-black uppercase tracking-widest text-white! shadow-[0_20px_40px_rgba(242,116,5,0.3)] transition-all hover:scale-105 sm:w-auto no-underline"
+        >
+          <span class="relative z-10">Explora Oportunidades</span>
+          <svg
+            class="h-6 w-6 transition-transform group-hover:translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+
+        <a
+          href={secondaryCTA.href}
+          class="group flex w-full items-center justify-center gap-2 rounded-xl border-2 border-white/40 bg-white/5 backdrop-blur-sm px-12 py-5 text-lg font-black uppercase tracking-widest text-white transition-all hover:bg-white hover:text-black sm:w-auto no-underline"
+        >
+          Contáctanos
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes kenBurns {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  .animate-ken-burns {
+    animation: kenBurns 40s ease-in-out infinite alternate;
+  }
+
+  .spotlight-text {
+    position: relative;
+    --x: 50%;
+    --y: 50%;
+  }
+
+  .spotlight-text::after {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(
+      circle at var(--x) var(--y),
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+  }
+</style>
+
+<script>
+  const setupHeroInteractions = () => {
+    const title = document.getElementById("hero-title");
+    if (title) {
+      window.addEventListener("mousemove", (e) => {
+        const rect = title.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        title.style.setProperty("--x", `${x}%`);
+        title.style.setProperty("--y", `${y}%`);
+      });
+    }
+  };
+
+  setupHeroInteractions();
+  document.addEventListener("astro:after-swap", setupHeroInteractions);
+</script>

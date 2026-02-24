@@ -1,0 +1,609 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+
+:root {
+  --sjp-primary: #f27405;
+  /* Industrial Orange */
+  --sjp-primary-strong: #d96304;
+  /* Darker Orange */
+  --sjp-primary-soft: #fff7ed;
+  /* Ultra-soft orange for subtle backgrounds */
+  --sjp-text: #0f172a;
+  /* Slate 900 */
+  --sjp-muted: #64748b;
+  /* Slate 500 */
+  --sjp-surface: #ffffff;
+  --sjp-border: #e2e8f0;
+  --sjp-dark-base: #0f172a;
+  /* Slate 900 for dark sections */
+}
+
+html,
+body {
+  background: #ffffff;
+  color: var(--sjp-text);
+  scroll-behavior: smooth;
+  font-family: 'Inter', 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Tipografía mejorada */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  @apply font-black;
+  letter-spacing: -1px;
+}
+
+h2 {
+  @apply font-bold;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Links y botones mejorados - Evitamos conflictos con Tailwind */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  @apply transition-all duration-300;
+}
+
+button {
+  @apply transition-all duration-200;
+}
+
+button:active {
+  @apply scale-95;
+}
+
+/* Scroll smooth en toda la página */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(224, 231, 244, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sjp-primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sjp-primary-strong);
+}
+
+/* Animaciones personalizadas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes revealInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+  animation-fill-mode: both;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+  animation-fill-mode: both;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+  animation-fill-mode: both;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+  animation-fill-mode: both;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+  animation-fill-mode: both;
+}
+
+/* 3D Premium Effects for Features - Advanced 3D Navigation */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+
+.features-3d-container {
+  --perspective: 2000px;
+  --hover-intensity: 15rem;
+  --hover-smoothness: 70ms;
+  --fall-smoothness: 250ms;
+  perspective: var(--perspective);
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .features-3d-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-3d-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.feature-card-3d {
+  --i: 0;
+  --max-items: 10;
+  --p-n: calc(var(--i) / (var(--max-items) - 1));
+  --diff: calc(var(--p-n) - 0.5);
+  --u: calc(abs(var(--diff)) / 0.4);
+  --falloff: clamp(calc(0.5 * (1 + cos(min(var(--u), 1) * 180deg))), 0, 1);
+  --tilt: calc(clamp(-1, var(--diff) * 5, 1) * var(--falloff) * 15deg);
+
+  transform-style: preserve-3d;
+  transition:
+    transform calc(var(--hover-smoothness) * var(--falloff) + var(--fall-smoothness) * (1 - var(--falloff))),
+    box-shadow var(--fall-smoothness),
+    filter var(--fall-smoothness);
+
+  filter:
+    brightness(max(0.85, var(--falloff, 0) * 1.15)) saturate(max(0.8, var(--falloff, 0) * 1));
+}
+
+.feature-card-3d:hover {
+  transform:
+    translateZ(calc(var(--falloff) * var(--hover-intensity))) rotateY(calc(var(--tilt) * 0.8)) rotateX(calc(var(--tilt) * 0.3)) scale(1.05) !important;
+  filter:
+    brightness(1.1) saturate(1.1) drop-shadow(0 20px 40px rgba(153, 27, 27, 0.2)) !important;
+}
+
+.feature-card-3d:nth-child(1) {
+  --i: 0;
+}
+
+.feature-card-3d:nth-child(2) {
+  --i: 1;
+}
+
+.feature-card-3d:nth-child(3) {
+  --i: 2;
+}
+
+.feature-card-3d:nth-child(4) {
+  --i: 3;
+}
+
+.feature-card-3d:nth-child(5) {
+  --i: 4;
+}
+
+.feature-card-3d:nth-child(6) {
+  --i: 5;
+}
+
+.feature-card-3d:nth-child(7) {
+  --i: 6;
+}
+
+.feature-card-3d:nth-child(8) {
+  --i: 7;
+}
+
+.feature-card-3d:nth-child(9) {
+  --i: 8;
+}
+
+.feature-card-3d:nth-child(10) {
+  --i: 9;
+}
+
+.feature-icon-3d {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  border-radius: 1.5rem;
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--sjp-primary-soft), rgba(190, 18, 60, 0.05));
+  box-shadow: 0 8px 16px rgba(190, 18, 60, 0.05);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+}
+
+.feature-card-3d:hover .feature-icon-3d {
+  transform: translateZ(20px) scale(1.15) rotateZ(10deg);
+  background: linear-gradient(135deg, var(--sjp-primary), var(--sjp-primary-strong));
+  box-shadow: 0 20px 40px rgba(242, 116, 5, 0.25);
+}
+
+.feature-title-3d {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--sjp-primary-strong);
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.feature-card-3d:hover .feature-title-3d {
+  transform: translateZ(10px);
+  color: var(--sjp-primary);
+}
+
+.feature-description-3d {
+  font-size: 0.9rem;
+  color: var(--sjp-muted);
+  opacity: 0.8;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+}
+
+.feature-card-3d:hover .feature-description-3d {
+  transform: translateZ(5px);
+  opacity: 1;
+  color: var(--sjp-text);
+}
+
+.feature-line-3d {
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sjp-primary), transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.feature-card-3d:hover .feature-line-3d {
+  transform: scaleX(1);
+}
+
+/* Responsive 3D adjustments */
+@media (max-width: 768px) {
+  .feature-card-3d {
+    --hover-intensity: 8rem;
+    --tilt: calc(clamp(-1, var(--diff) * 3, 1) * var(--falloff) * 8deg);
+  }
+
+  .feature-card-3d:hover {
+    transform:
+      translateZ(calc(var(--falloff) * var(--hover-intensity))) rotateY(calc(var(--tilt) * 0.5)) rotateX(calc(var(--tilt) * 0.2)) scale(1.03) !important;
+  }
+
+  .feature-icon-3d {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.75rem;
+  }
+
+  .feature-title-3d {
+    font-size: 1rem;
+  }
+}
+
+/* Directory & Company Cards Modern Effects */
+.company-card {
+  --card-gradient: linear-gradient(135deg, rgba(190, 18, 60, 0.05), rgba(153, 27, 27, 0.02));
+  background: #ffffff;
+  position: relative;
+}
+
+.company-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--sjp-primary), var(--sjp-primary-strong), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.company-card:hover::before {
+  opacity: 1;
+}
+
+/* Animación de entrada para tarjetas */
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.company-card {
+  animation: cardSlideIn 0.6s ease-out backwards;
+}
+
+.company-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.company-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.company-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.company-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.company-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.company-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+/* Botón de búsqueda con efecto */
+#search-empresas {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#search-empresas:focus {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(242, 116, 5, 0.1);
+}
+
+/* Botones de categoría con glassmorphism */
+.category-filter {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.category-filter:hover {
+  background: rgba(12, 113, 195, 0.08);
+  transform: translateY(-4px);
+}
+
+/* Badge animations */
+@keyframes badgePulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+  }
+
+  50% {
+    box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+  }
+}
+
+.company-card[data-badge]::after {
+  animation: badgePulse 2s infinite;
+}
+
+/* Efecto shimmer para loading */
+.shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+  background-size: 1000px 100%;
+}
+
+/* Efectos de hover en tarjetas */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Textos destacados */
+strong {
+  @apply font-semibold text-(--sjp-primary-strong);
+}
+
+/* Gradientes útiles */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--sjp-primary) 0%, var(--sjp-primary-strong) 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--sjp-primary) 0%, var(--sjp-primary-strong) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Bordes decorativos */
+.border-accent {
+  border-color: var(--sjp-primary);
+}
+
+.border-accent-gradient {
+  background: linear-gradient(90deg, var(--sjp-primary), var(--sjp-primary-strong));
+}
+
+/* Sombras mejoradas */
+.shadow-soft {
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+}
+
+.shadow-medium {
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1);
+}
+
+.shadow-strong {
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.15);
+}
+
+/* Focus visible mejorado */
+:focus-visible {
+  outline: 2px solid var(--sjp-primary);
+  outline-offset: 2px;
+}
+
+/* Mejora de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Responsive text sizes */
+@media (max-width: 768px) {
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+}
+
+/* Mejora en legibilidad de links */
+a {
+  text-decoration: none;
+  position: relative;
+}
+
+a:not(.no-underline)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--sjp-primary);
+  transition: width 0.3s ease;
+}
+
+a:not(.no-underline):hover::after {
+  width: 100%;
+}

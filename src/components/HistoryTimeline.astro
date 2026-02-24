@@ -1,0 +1,85 @@
+---
+const timeline = [
+    {
+        year: "2009",
+        title: "Nace un Sueño",
+        description:
+            "Iniciamos operaciones con el firme propósito de centralizar la industria y el comercio en un solo punto estratégico de Mosquera.",
+    },
+    {
+        year: "2013",
+        title: "Primera Gran Expansión",
+        description:
+            "Consolidamos las primeras 32 hectáreas de desarrollo industrial de primer nivel, atrayendo a las primeras empresas ancla.",
+    },
+    {
+        year: "2018",
+        title: "Innovación Tecnológica",
+        description:
+            "Implementamos sistemas de seguridad avanzados de última generación y mejoras en la infraestructura vial interna.",
+    },
+    {
+        year: "2024",
+        title: "Visión 2026",
+        description:
+            "Hoy somos el centro logístico más moderno de la región, preparando el terreno para la industria 4.0 y sostenibilidad.",
+    },
+];
+---
+
+<section class="py-24 bg-white overflow-hidden">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mb-16">
+            <h2
+                class="text-xs font-black uppercase tracking-[0.4em] text-(--sjp-primary) mb-4"
+            >
+                Nuestra Trayectoria
+            </h2>
+            <h3
+                class="text-4xl md:text-5xl font-black text-slate-950 uppercase tracking-tighter"
+            >
+                Creciendo junto a la <br /><span class="italic text-slate-400"
+                    >Industria Colombiana</span>
+            </h3>
+        </div>
+
+        <div class="relative">
+            {/* Línea central ajustable responsive */}
+            <div
+                class="absolute left-4 md:left-1/2 top-0 h-full w-px bg-slate-100 -translate-x-1/2"
+            >
+            </div>
+
+            <div class="space-y-12 md:space-y-24">
+                {
+                    timeline.map((item, index) => (
+                        <div
+                            class={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
+                        >
+                            {/* Punto de la línea */}
+                            <div class="absolute left-4 md:left-1/2 top-0 md:top-1/2 -translate-y-1/2 -translate-x-1/2 z-10">
+                                <div class="h-4 w-4 rounded-full bg-white border-4 border-(--sjp-primary) shadow-[0_0_20px_rgba(242,116,5,0.4)]" />
+                            </div>
+
+                            <div
+                                class={`w-full md:w-1/2 pl-12 md:pl-0 ${index % 2 === 0 ? "md:pr-24 text-left md:text-right" : "md:pl-24 text-left"}`}
+                            >
+                                <span class="text-5xl md:text-7xl font-black text-slate-100 mb-2 block">
+                                    {item.year}
+                                </span>
+                                <h4 class="text-2xl font-black text-slate-900 mb-4">
+                                    {item.title}
+                                </h4>
+                                <p class="text-slate-600 leading-relaxed font-medium">
+                                    {item.description}
+                                </p>
+                            </div>
+
+                            <div class="hidden md:block w-1/2" />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,72 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFloating from "../components/WhatsAppFloating.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  showHeader?: boolean;
+  showFooter?: boolean;
+}
+
+const {
+  title,
+  description = "Centro Comercial y Empresarial San Jorge PI",
+  showHeader = true,
+  showFooter = true,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <title>{title}</title>
+  </head>
+  <body
+    class="min-h-screen flex flex-col text-(--sjp-text) overflow-x-hidden w-full m-0 p-0"
+  >
+    <div class="flex flex-col min-h-screen w-full overflow-x-hidden relative">
+      {showHeader && <Header />}
+      <main class="flex-1 w-full">
+        <slot />
+      </main>
+      {showFooter && <Footer />}
+    </div>
+    <WhatsAppFloating whatsappNumber="573102143000" />
+
+    <script>
+      const setupScrollReveals = () => {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+          observer.observe(el);
+        });
+      };
+
+      // Lifecycle handlers
+      setupScrollReveals();
+      document.addEventListener("astro:after-swap", () => {
+        setupScrollReveals();
+      });
+    </script>
+  </body>
+</html>

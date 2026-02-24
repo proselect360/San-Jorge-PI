@@ -1,0 +1,70 @@
+---
+
+---
+
+<section
+    class="relative min-h-[40vh] flex items-center overflow-hidden bg-slate-950 pt-20"
+>
+    <div class="absolute inset-0 z-0">
+        <div
+            class="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/80 to-transparent z-10"
+        >
+        </div>
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(242,116,5,0.15),transparent_50%)] z-10"
+        >
+        </div>
+        <div
+            class="h-full w-full bg-[url('https://images.unsplash.com/photo-1493946740624-730da42323f4?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-20"
+        >
+        </div>
+    </div>
+
+    <div class="container relative z-20 mx-auto px-4 md:px-6">
+        <div class="max-w-3xl">
+            <div class="mb-6 flex items-center gap-3">
+                <div class="h-1 w-12 bg-(--sjp-primary)"></div>
+                <span
+                    class="text-xs font-black uppercase tracking-[0.5em] text-(--sjp-primary)"
+                    >Canales de Comunicación</span
+                >
+            </div>
+            <h1
+                class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-tight animate-fade-in-up"
+            >
+                Construyamos el Futuro <br />
+                <span class="text-white/60 italic font-medium"
+                    >de tu Operación</span
+                >
+            </h1>
+            <p
+                class="mt-6 text-lg text-slate-400 font-medium max-w-xl opacity-0 animate-fade-in-up animation-delay-300"
+            >
+                Estamos listos para brindarte asesoría personalizada y
+                soluciones de infraestructura que potencien tu crecimiento
+                industrial.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animation-delay-300 {
+        animation-delay: 0.3s;
+    }
+</style>

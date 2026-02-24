@@ -1,0 +1,95 @@
+---
+
+---
+
+<section
+    class="relative bg-white py-24 transition-colors duration-500 overflow-hidden"
+>
+    {/* Decoración de fondo */}
+    <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none opacity-50"
+    >
+        <div
+            class="absolute top-0 left-0 w-96 h-96 bg-red-500/5 rounded-full blur-[120px]"
+        >
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-96 h-96 bg-slate-500/5 rounded-full blur-[120px]"
+        >
+        </div>
+    </div>
+
+    <div class="mx-auto max-w-7xl px-4 md:px-6 relative z-10">
+        <div class="mb-12 text-center reveal-on-scroll">
+            <div
+                class="inline-flex items-center gap-2 mb-6 rounded-full bg-red-50 px-5 py-2 border border-red-100"
+            >
+                <span
+                    class="text-[11px] font-black tracking-[0.3em] uppercase text-(--sjp-primary)"
+                    >Experiencia San Jorge</span
+                >
+            </div>
+            <h2
+                class="text-4xl font-black tracking-tighter text-slate-950 md:text-6xl leading-tight mb-6"
+            >
+                Conoce nuestra <span class="italic text-slate-500"
+                    >infraestructura</span
+                >
+            </h2>
+        </div>
+
+        {/* Contenedor del Video con Efecto Premium */}
+        <div class="reveal-on-scroll">
+            <div
+                class="group relative mx-auto max-w-5xl overflow-hidden rounded-[2.5rem] border border-slate-100 bg-black shadow-[0_32px_80px_rgba(0,0,0,0.15)]"
+            >
+                {/* Aspect Ratio Container */}
+                <div class="aspect-video w-full overflow-hidden">
+                    <iframe
+                        src="https://www.youtube.com/embed/5xR_kwxDxiY?start=15&autoplay=0&rel=0&modestbranding=1"
+                        title="San Jorge Industrial Park Video"
+                        class="h-full w-full border-0 transition-transform duration-700 group-hover:scale-[1.02]"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+                {/* Overlay decorativo en los bordes para profundidad */}
+                <div
+                    class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10"
+                >
+                </div>
+            </div>
+
+            {/* Pie de video descriptivo */}
+            <div
+                class="mt-12 flex flex-col items-center justify-between gap-6 border-t border-slate-100 pt-12 md:flex-row"
+            >
+                <div class="md:max-w-md">
+                    <p class="text-sm font-bold text-slate-500">
+                        San Jorge PI combina ubicación estratégica en Mosquera
+                        con la infraestructura más robusta de la sabana de
+                        Bogotá, diseñada para operaciones de alto impacto.
+                    </p>
+                </div>
+                <div class="flex gap-8">
+                    <div class="text-center">
+                        <p class="text-3xl font-black text-slate-950">150+</p>
+                        <p
+                            class="text-[10px] font-black uppercase tracking-widest text-slate-400"
+                        >
+                            Empresas
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-3xl font-black text-slate-950">100%</p>
+                        <p
+                            class="text-[10px] font-black uppercase tracking-widest text-slate-400"
+                        >
+                            Seguridad
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
