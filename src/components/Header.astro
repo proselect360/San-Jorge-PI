@@ -26,6 +26,8 @@ const {
             src="/logo.png"
             alt="San Jorge PI"
             class="h-8 w-8 object-contain"
+            loading="eager"
+            decoding="async"
           />
         </div>
       </div>
@@ -92,7 +94,7 @@ const {
         href="https://superaccess.co/industrial2/"
         target="_blank"
         rel="noopener noreferrer"
-        class="group relative flex items-center gap-2 overflow-hidden rounded-xl bg-(--sjp-primary) px-4 py-2.5 text-xs font-black text-white! shadow-xl transition-all hover:scale-105 active:scale-95 no-underline uppercase tracking-widest"
+        class="group relative flex items-center gap-2 overflow-hidden rounded-xl bg-(--sjp-primary) px-4 py-2.5 text-xs font-black !text-white shadow-xl transition-all hover:scale-105 active:scale-95 no-underline uppercase tracking-widest"
       >
         <span class="relative z-10">ACCESOS</span>
       </a>
@@ -143,6 +145,11 @@ const {
       let isOpen = false;
 
       if (menuButton && mobileNav) {
+        if ((menuButton as HTMLButtonElement).dataset.menuBound === "true") {
+          return;
+        }
+        (menuButton as HTMLButtonElement).dataset.menuBound = "true";
+
         menuButton.addEventListener("click", () => {
           isOpen = !isOpen;
 

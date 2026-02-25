@@ -16,42 +16,42 @@ const {
     {
       id: "logistica",
       name: "Logística",
-      icon: "🚚",
+      icon: "\u{1F69A}",
       count: 24,
       color: "from-(--sjp-primary)",
     },
     {
       id: "manufactura",
       name: "Manufactura",
-      icon: "⚙️",
+      icon: "\u2699\uFE0F",
       count: 18,
       color: "from-slate-800",
     },
     {
       id: "almacenamiento",
       name: "Almacenamiento",
-      icon: "📦",
+      icon: "\u{1F4E6}",
       count: 32,
       color: "from-slate-700",
     },
     {
       id: "comercio",
       name: "Comercio",
-      icon: "🏪",
+      icon: "\u{1F3EA}",
       count: 28,
       color: "from-(--sjp-primary-strong)",
     },
     {
       id: "servicios",
       name: "Servicios",
-      icon: "💼",
+      icon: "\u{1F4BC}",
       count: 22,
       color: "from-slate-600",
     },
     {
       id: "tecnologia",
       name: "Tecnología",
-      icon: "💻",
+      icon: "\u{1F4BB}",
       count: 16,
       color: "from-(--sjp-primary)",
     },
@@ -153,7 +153,7 @@ const {
   </svg>
 </section>
 
-<section class="relative py-16 md:py-24">
+<section id="directorio" class="relative py-16 md:py-24">
   <div class="mx-auto max-w-7xl px-4 md:px-6">
     {/* Buscador interactivo */}
     <div class="mb-12">
@@ -296,10 +296,21 @@ const {
     const clearAllBtn = document.getElementById("clear-all");
     const resetSearchBtn = document.getElementById("reset-search");
 
+    if (searchInput?.dataset.searchBound === "true") return;
+    if (searchInput) searchInput.dataset.searchBound = "true";
+
     let state = {
       searchTerm: "",
       selectedCategories: new Set<string>(),
     };
+
+    const escapeHtml = (value: string) =>
+      value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
 
     function updateDisplay() {
       const companies = document.querySelectorAll(".company-card");
@@ -357,7 +368,7 @@ const {
       if (state.searchTerm) {
         html += `
           <div class="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2 text-[10px] font-black uppercase tracking-widest text-white animate-fade-in shadow-lg">
-            <span>Búsqueda: ${state.searchTerm}</span>
+            <span>Búsqueda: ${escapeHtml(state.searchTerm)}</span>
             <button data-type="search" class="hover:text-rose-400 transition-colors ml-1 p-0.5">
               <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
@@ -372,7 +383,7 @@ const {
 
         html += `
           <div class="inline-flex items-center gap-2 rounded-xl bg-(--sjp-primary) px-4 py-2 text-[10px] font-black uppercase tracking-widest text-white animate-fade-in shadow-lg shadow-(--sjp-primary)/20">
-            <span>${name}</span>
+            <span>${escapeHtml(name)}</span>
             <button data-type="category" data-id="${catId}" class="hover:text-black transition-colors ml-1 p-0.5">
                <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
@@ -483,3 +494,5 @@ const {
     animation: gradient-shift 3s ease infinite;
   }
 </style>
+
+

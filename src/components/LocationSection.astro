@@ -1,5 +1,4 @@
 ---
-import InteractiveMap from "./InteractiveMap";
 ---
 
 <section id="mapa" class="pb-24">
@@ -7,12 +6,42 @@ import InteractiveMap from "./InteractiveMap";
         <div
             class="relative overflow-hidden rounded-[3rem] bg-slate-900 border border-slate-800 shadow-3xl h-[600px] group"
         >
-            {/* Mapa Interactivo React-Simple-Maps con Dotted Style */}
-            <div
-                class="absolute inset-0 opacity-80 group-hover:opacity-100 transition-all duration-1000 z-0"
-            >
-                <InteractiveMap client:only="react" />
+            <div class="absolute left-6 top-6 z-30 inline-flex rounded-xl border border-white/15 bg-slate-900/70 p-1 backdrop-blur-md">
+                <button
+                    id="map-mode-google"
+                    type="button"
+                    class="rounded-lg bg-white px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-slate-900 transition-colors"
+                >
+                    Google Maps
+                </button>
+                <button
+                    id="map-mode-interactive"
+                    type="button"
+                    class="rounded-lg px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-white/80 transition-colors hover:text-white"
+                >
+                    Mapa Interactivo
+                </button>
             </div>
+
+            {/* Vista por defecto: Google Maps */}
+            <iframe
+                id="google-map-frame"
+                title="Mapa Parque Industrial San Jorge"
+                src="https://www.google.com/maps?q=PQ75%2BQ8+Mosquera,+Cundinamarca&z=15&output=embed"
+                class="absolute inset-0 h-full w-full z-0"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+
+            {/* Vista alternativa: Google Maps satelital (interactivo) */}
+            <iframe
+                id="interactive-map-layer"
+                title="Mapa Interactivo Satelital San Jorge"
+                src="https://www.google.com/maps?q=PQ75%2BQ8+Mosquera,+Cundinamarca&z=17&t=k&output=embed"
+                class="absolute inset-0 h-full w-full z-0 hidden"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
 
             {/* Overlay Gradiente Noir para profundidad */}
             <div
@@ -107,3 +136,37 @@ import InteractiveMap from "./InteractiveMap";
         </div>
     </div>
 </section>
+
+<script>
+    const setupMapModeToggle = () => {
+        const googleBtn = document.getElementById("map-mode-google");
+        const interactiveBtn = document.getElementById("map-mode-interactive");
+        const googleFrame = document.getElementById("google-map-frame");
+        const interactiveLayer = document.getElementById("interactive-map-layer");
+
+        if (!googleBtn || !interactiveBtn || !googleFrame || !interactiveLayer) return;
+        if ((googleBtn as HTMLButtonElement).dataset.bound === "true") return;
+        (googleBtn as HTMLButtonElement).dataset.bound = "true";
+
+        const setMode = (mode: "google" | "interactive") => {
+            const isGoogle = mode === "google";
+            googleFrame.classList.toggle("hidden", !isGoogle);
+            interactiveLayer.classList.toggle("hidden", isGoogle);
+
+            googleBtn.className = isGoogle
+                ? "rounded-lg bg-white px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-slate-900 transition-colors"
+                : "rounded-lg px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-white/80 transition-colors hover:text-white";
+
+            interactiveBtn.className = !isGoogle
+                ? "rounded-lg bg-white px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-slate-900 transition-colors"
+                : "rounded-lg px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-white/80 transition-colors hover:text-white";
+        };
+
+        googleBtn.addEventListener("click", () => setMode("google"));
+        interactiveBtn.addEventListener("click", () => setMode("interactive"));
+        setMode("google");
+    };
+
+    setupMapModeToggle();
+    document.addEventListener("astro:after-swap", setupMapModeToggle);
+</script>

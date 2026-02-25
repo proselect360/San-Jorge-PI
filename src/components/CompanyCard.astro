@@ -177,9 +177,12 @@ const {
     },
   ],
 } = Astro.props;
+
+const normalizeWhatsapp = (value?: string) =>
+  (value ?? '').replace(/\\D/g, '').replace(/^57/, '');
 ---
 
-<section class="relative py-20 bg-slate-50/50">
+<section id="empresas" class="relative py-20 bg-slate-50/50">
   <div class="mx-auto max-w-7xl px-4 md:px-6">
     {/* Grid de empresas */}
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -330,7 +333,7 @@ const {
               <div class="space-y-4">
                 <div class="flex gap-3">
                   <a
-                    href={`https://wa.me/57${company.whatsapp}?text=Hola%20${company.name}%2C%20me%20gustaría%20conocer%20más%20sobre%20sus%20servicios.`}
+                    href={`https://wa.me/57${normalizeWhatsapp(company.whatsapp)}?text=${encodeURIComponent(`Hola ${company.name}, me gustara conocer ms sobre sus servicios.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="flex-1 flex items-center justify-center gap-2 rounded-xl bg-green-600 py-3 text-[10px] font-black text-white hover:bg-green-700 transition-colors uppercase tracking-widest"
@@ -471,3 +474,5 @@ const {
     }
   }
 </style>
+
+

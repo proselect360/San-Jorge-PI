@@ -7,9 +7,10 @@ const interests = [
     "Lotes a Medida",
     "Otros Servicios",
 ];
+const salesWhatsapp = "573102143000";
 ---
 
-<section class="py-24 relative overflow-hidden">
+<section id="contacto" class="py-24 relative overflow-hidden">
     <div class="container mx-auto px-4 md:px-6">
         <div class="grid lg:grid-cols-2 gap-16 items-start">
             {/* Columna Formulario */}
@@ -22,7 +23,7 @@ const interests = [
                 <div
                     class="relative bg-white rounded-[2.5rem] border border-slate-100 p-8 md:p-12 shadow-[0_32px_64px_rgba(0,0,0,0.05)]"
                 >
-                    <form class="space-y-6">
+                    <form id="contact-form" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <label
@@ -30,6 +31,7 @@ const interests = [
                                     >Nombre Completo</label
                                 >
                                 <input
+                                    name="nombre"
                                     type="text"
                                     required
                                     class="w-full rounded-2xl border-2 border-slate-50 bg-slate-50 px-6 py-4 text-sm font-bold text-slate-900 transition-all focus:border-(--sjp-primary) focus:bg-white focus:outline-none"
@@ -42,6 +44,7 @@ const interests = [
                                     >Empresa</label
                                 >
                                 <input
+                                    name="empresa"
                                     type="text"
                                     class="w-full rounded-2xl border-2 border-slate-50 bg-slate-50 px-6 py-4 text-sm font-bold text-slate-900 transition-all focus:border-(--sjp-primary) focus:bg-white focus:outline-none"
                                     placeholder="Tu Empresa S.A.S"
@@ -56,6 +59,7 @@ const interests = [
                                     >Email Corporativo</label
                                 >
                                 <input
+                                    name="email"
                                     type="email"
                                     required
                                     class="w-full rounded-2xl border-2 border-slate-50 bg-slate-50 px-6 py-4 text-sm font-bold text-slate-900 transition-all focus:border-(--sjp-primary) focus:bg-white focus:outline-none"
@@ -68,6 +72,7 @@ const interests = [
                                     >Teléfono</label
                                 >
                                 <input
+                                    name="telefono"
                                     type="tel"
                                     required
                                     class="w-full rounded-2xl border-2 border-slate-50 bg-slate-50 px-6 py-4 text-sm font-bold text-slate-900 transition-all focus:border-(--sjp-primary) focus:bg-white focus:outline-none"
@@ -82,6 +87,7 @@ const interests = [
                                 >Interés Principal</label
                             >
                             <select
+                                name="interes"
                                 class="w-full rounded-2xl border-2 border-slate-50 bg-slate-50 px-6 py-4 text-sm font-bold text-slate-900 transition-all focus:border-(--sjp-primary) focus:bg-white focus:outline-none appearance-none cursor-pointer"
                             >
                                 {
@@ -98,6 +104,7 @@ const interests = [
                                 >Mensaje</label
                             >
                             <textarea
+                                name="mensaje"
                                 rows="4"
                                 class="w-full rounded-2xl border-2 border-slate-50 bg-slate-50 px-6 py-4 text-sm font-bold text-slate-900 transition-all focus:border-(--sjp-primary) focus:bg-white focus:outline-none resize-none"
                                 placeholder="Cuéntanos más sobre tus necesidades logísticas..."
@@ -114,6 +121,7 @@ const interests = [
                             >
                             </div>
                         </button>
+                        <p id="contact-form-status" class="text-xs font-bold text-slate-500">Tu solicitud se enviar por WhatsApp al equipo comercial.</p>
                     </form>
                 </div>
             </div>
@@ -200,3 +208,42 @@ const interests = [
         </div>
     </div>
 </section>
+
+
+
+<script define:vars={{ salesWhatsapp }}>
+  const contactForm = document.getElementById("contact-form") as HTMLFormElement | null;
+  const statusLabel = document.getElementById("contact-form-status");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(contactForm);
+      const nombre = String(formData.get("nombre") || "").trim();
+      const empresa = String(formData.get("empresa") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const telefono = String(formData.get("telefono") || "").trim();
+      const interes = String(formData.get("interes") || "").trim();
+      const mensaje = String(formData.get("mensaje") || "").trim();
+
+      const lines = [
+        "Hola, quiero informacion del Parque Industrial San Jorge.",
+        `Nombre: ${nombre}`,
+        `Empresa: ${empresa || "No indicada"}`,
+        `Email: ${email}`,
+        `Telefono: ${telefono}`,
+        `Interes: ${interes || "No indicado"}`,
+        `Mensaje: ${mensaje || "Sin mensaje adicional"}`,
+      ];
+
+      const whatsappUrl = `https://wa.me/${salesWhatsapp}?text=${encodeURIComponent(lines.join("\n"))}`;
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+
+      if (statusLabel) {
+        statusLabel.textContent = "Solicitud preparada. Se abrio WhatsApp para finalizar el envio.";
+      }
+    });
+  }
+</script>
+

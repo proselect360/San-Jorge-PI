@@ -112,7 +112,7 @@ const {
       >
         <a
           href={primaryCTA.href}
-          class="group relative flex w-full items-center justify-center gap-4 overflow-hidden rounded-xl bg-(--sjp-primary) px-12 py-5 text-lg font-black uppercase tracking-widest text-white! shadow-[0_20px_40px_rgba(242,116,5,0.3)] transition-all hover:scale-105 sm:w-auto no-underline"
+          class="group relative flex w-full items-center justify-center gap-4 overflow-hidden rounded-xl bg-(--sjp-primary) px-12 py-5 text-lg font-black uppercase tracking-widest !text-white shadow-[0_20px_40px_rgba(242,116,5,0.3)] transition-all hover:scale-105 sm:w-auto no-underline"
         >
           <span class="relative z-10">Explora Oportunidades</span>
           <svg
@@ -178,6 +178,9 @@ const {
   const setupHeroInteractions = () => {
     const title = document.getElementById("hero-title");
     if (title) {
+      if ((title as HTMLElement).dataset.mouseBound === "true") return;
+      (title as HTMLElement).dataset.mouseBound = "true";
+
       window.addEventListener("mousemove", (e) => {
         const rect = title.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
